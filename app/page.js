@@ -1,6 +1,6 @@
 'use client';
 
-import { Award, CheckCircle, Clock, FileText, Filter, Mail, Menu, Package, Phone, Search, Shield, ShoppingCart, Star, Upload, Wrench, X } from 'lucide-react';
+import { Award, Building2, CheckCircle, Clock, Filter, Laptop, Mail, Menu, Microscope, Monitor, Package, Phone, Search, Shield, ShoppingCart, Star, Upload, X } from 'lucide-react';
 import { useEffect, useState } from 'react';
 
 const DentalEcommerce = () => {
@@ -117,7 +117,7 @@ const DentalEcommerce = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-20">
             <button onClick={() => setCurrentPage('home')} className="text-xl font-light text-green-800 tracking-wide">
-              Khema-ខេមា
+              Ecodentech
             </button>
 
             {/* Desktop Navigation */}
@@ -184,9 +184,9 @@ const DentalEcommerce = () => {
     
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32">
               <div className="max-w-3xl">
-                <h1 className="text-5xl md:text-6xl font-light mb-8 text-green-700 leading-tight">Khema Digital Dental Laboratory</h1>
+                <h1 className="text-5xl md:text-6xl font-light mb-8 text-green-700 leading-tight">Ecodent Dental Technology Solutions</h1>
                 <p className="text-xl mb-12 text-green-700 font-light leading-relaxed">
-                  Khema Digital Dental Laboratory is a leading tech-driven facility in Cambodia, specializing in high-precision zirconium frameworks and implant restorations.
+                  Ecodent Dental Technology Solutions is a leading tech-driven facility in Cambodia, specializing in high-precision zirconium frameworks and implant restorations.
                 </p>
                 <div className="max-w-2xl">
                 <div className="flex items-center bg-white rounded-full shadow-lg overflow-hidden">
@@ -198,7 +198,7 @@ const DentalEcommerce = () => {
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
                     onKeyPress={handleKeyPress}
-                    placeholder="Search for products or services..."
+                    placeholder="Ecodent Search..."
                     className="flex-1 py-4 px-2 text-gray-900 placeholder-gray-500 focus:outline-none"
                   />
                   <button 
@@ -227,7 +227,7 @@ const DentalEcommerce = () => {
           <div className="bg-white border-t border-b border-green-200 py-16">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <div className="grid grid-cols-2 md:grid-cols-4 gap-12 text-center">
-                {[{n:'15K+',l:'Moulds Created'},{n:'98%',l:'Satisfaction Rate'},{n:'500+',l:'Dental Clinics'},{n:'10 Years',l:'Experience'}].map((stat,i) => (
+                {[{n:'5K+',l:'Moulds Created'},{n:'40+',l:'Satisfaction Rate'},{n:'1+',l:'Dental Clinics'},{n:'10 Years',l:'Experience'}].map((stat,i) => (
                   <div key={i}><div className="text-4xl font-light text-green-600 mb-2">{stat.n}</div><div className="text-green-800 text-sm tracking-wide uppercase">{stat.l}</div></div>
                 ))}
               </div>
@@ -237,24 +237,54 @@ const DentalEcommerce = () => {
           {/* OUR SERVICES SECTION */}
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-22">
             <h2 className="text-4xl font-bold text-center mb-20 text-green-600 tracking-tight uppercase">OUR SERVICES</h2>
-            <div className="grid md:grid-cols-3 gap-8">
+            
+            {/* First 3 cards */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-8">
               {[
                 {
-                  icon: Package,
-                  title: '3D Scanning Devices',
-                  desc: 'Professional-grade equipment for accurate dental scanning and mould creation.',
-                  link: 'shop',
+                  icon: Microscope,
+                  title: 'Ecodent Dental Technology Solutions',
+                  desc: (
+                    <>
+                      + Crown & Bridge
+                      <br />
+                      + Implant
+                      <br />
+                      + Removable
+                      <br />
+                      + Orthodontic
+                    </>
+                  ),
+                  link: 'shop', 
                 },
                 {
-                  icon: FileText,
-                  title: 'Custom Mould Service',
-                  desc: 'Upload your 3D scan files and receive professionally crafted dental moulds.',
+                  icon: Package,
+                  title: 'Raksmey Medent Supply',
+                  desc: (
+                    <>
+                      + Clinical Supplies 
+                      <br />
+                      + Lab Supplies
+                      <br />
+                      + Repair & Maintenance
+                      <br />
+                      + Dental Care Financing
+                    </>
+                  ),
                   link: 'custom',
                 },
                 {
-                  icon: Wrench,
-                  title: 'Device Maintenance',
-                  desc: 'Expert repair and maintenance services to keep your equipment running perfectly.',
+                  icon: Monitor,
+                  title: 'Ecodentech Digital Dental Solution',
+                  desc: (
+                    <>
+                      + ecoDent Planning Center 
+                      <br />
+                      + ecoDent Imaging Center
+                      <br />
+                      + CAD/CAM Service Center
+                    </>
+                  ),
                   link: 'maintenance',
                 }
               ].map((service, i) => (
@@ -262,7 +292,73 @@ const DentalEcommerce = () => {
                   key={i} 
                   className="group relative bg-white border-green-500 p-8 rounded-2xl shadow-lg transition-all duration-500 ease-in-out hover:-translate-y-2 flex flex-col items-center text-center overflow-hidden border"
                 >
-                  {/* Blue Hover Gradient Overlay */}
+                  {/* Green Hover Gradient Overlay */}
+                  <div className="absolute inset-0 bg-linear-to-br from-green-500 via-green-600 to-green-700 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+
+                  {/* Content Wrapper */}
+                  <div className="relative z-10 flex flex-col items-center h-full w-full">
+                    {/* Icon Container */}
+                    <div className="w-20 h-20 rounded-full border-2 border-green-300 flex items-center justify-center mb-6 transition-all duration-500 group-hover:border-white/30 group-hover:bg-white/10">
+                      <service.icon 
+                        className="w-10 h-10 text-green-700 transition-colors duration-500 group-hover:text-white" 
+                        strokeWidth={1.5} 
+                      />
+                    </div>
+                    
+                    {/* Text Content */}
+                    <h3 className="text-2xl font-bold mb-4 text-gray-800 transition-colors duration-500 group-hover:text-white">
+                      {service.title}
+                    </h3>
+                    
+                    <p className="text-gray-500 leading-relaxed mb-8 transition-colors duration-500 group-hover:text-white/90">
+                      {service.desc}
+                    </p>
+                    
+                    {/* Button at the bottom (mt-auto pushes it down) */}
+                    <div className="mt-auto">
+                      <button 
+                        onClick={() => setCurrentPage(service.link)} 
+                        className="w-full bg-green-600 text-white px-8 py-2 rounded-full font-light transition-all duration-300 group-hover:bg-white group-hover:text-green-700 shadow-sm"
+                      >
+                        More
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+            
+            {/* Last 2 cards centered */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl mx-auto">
+              {[
+                {
+                  icon: Laptop,
+                  title: 'Ecodent Technology Solution',
+                  desc: (
+                    <>
+                      + Practice & Lab Management Software 
+                      <br />
+                      + Dental IT Solution
+                      <br />
+                      + Education
+                      <br />
+                      + Dental Business Management
+                    </>
+                  ),
+                  link: 'maintenance',
+                },
+                {
+                  icon: Building2,
+                  title: 'Ecodent Hospital',
+                  desc: 'Multi Location Dental Clinic/ Network',
+                  link: 'maintenance',
+                }
+              ].map((service, i) => (
+                <div 
+                  key={i} 
+                  className="group relative bg-white border-green-500 p-8 rounded-2xl shadow-lg transition-all duration-500 ease-in-out hover:-translate-y-2 flex flex-col items-center text-center overflow-hidden border"
+                >
+                  {/* Green Hover Gradient Overlay */}
                   <div className="absolute inset-0 bg-linear-to-br from-green-500 via-green-600 to-green-700 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
                   {/* Content Wrapper */}
@@ -298,11 +394,10 @@ const DentalEcommerce = () => {
               ))}
             </div>
           </div>
-
           {/* Featured Products Section */}
           <div className="bg-green-50 py-24">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              <h2 className="text-4xl font-bold text-center mb-20 text-green-600">FEATURED PRODUCTS</h2>
+              <h2 className="text-4xl font-bold text-center mb-20 text-green-600">Our Partnership</h2>
               <div className="grid md:grid-cols-3 gap-12">
                 {products.map(product => (
                   <div key={product.id} className="bg-green-600 rounded-xl overflow-hidden group">
@@ -335,19 +430,165 @@ const DentalEcommerce = () => {
 
           {/* How It Works Section */}
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
-            <h2 className="text-4xl font-bold text-center mb-20 text-green-600">How It Works</h2>
-            <div className="grid md:grid-cols-4 gap-12">
-              {[{n:'1',t:'Upload Your Scan',d:'Send us your 3D dental scan files securely'},{n:'2',t:'We Process',d:'Our experts review and prepare your mould'},{n:'3',t:'3D Printing',d:'High-precision manufacturing of your mould'},{n:'4',t:'Delivery',d:'Fast shipping directly to your clinic'}].map((step,i) => (
-                <div key={i}>
-                  <div className="w-12 h-12 border border-blue-900 text-green-600 flex items-center justify-center mb-6"><span className="text-lg font-light text-green-600">{step.n}</span></div>
-                  <h3 className="font-light mb-3 text-green-600 text-lg">{step.t}</h3>
-                  <p className="text-green-800 text-sm leading-relaxed">{step.d}</p>
+            <h2 className="text-4xl font-bold text-center mb-12 text-green-600 tracking-tight uppercase">Overview of Production Process</h2>
+            
+            {/* Fixed Prosthetic Devices */}
+            <div className="mb-16">
+              <h3 className="text-2xl font-bold mb-6 text-gray-800 border-b-4 border-green-600 inline-block pb-2">Fixed Prosthetic Devices</h3>
+              
+              {/* Process Flow */}
+              <div className="flex items-center mb-8 overflow-x-auto w-full">
+                {[
+                  { title: '1) Impression/\n2) Intra-oral Scanner' },
+                  { title: 'Model' },
+                  { title: 'Framework' },
+                  { title: 'Ceramic' },
+                  { title: 'QA' },
+                  { title: 'Installation' }
+                ].map((step, i) => (
+                  <div key={i} className="flex items-center flex-1 min-w-37.5">
+                    <div className={`bg-linear-to-r from-green-600 to-green-700 text-white px-4 py-4 w-full text-center relative h-15 flex items-center justify-center ${i === 0 ? 'rounded-l-lg' : ''} ${i === 5 ? 'rounded-r-lg' : ''}`}>
+                      {i < 5 && (
+                        <div className="absolute right-0 top-0 w-0 h-0 border-t-30 border-t-transparent border-b-30 border-b-transparent border-l-20 border-l-green-700 translate-x-full z-10"></div>
+                      )}
+                      <span className="text-sm font-semibold whitespace-pre-line">{step.title}</span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+              
+              {/* Details and Images Grid */}
+              <div className="flex gap-4 overflow-x-auto">
+                <div className="shrink-0 w-50">
+                  <ul className="text-xs text-gray-700 space-y-1 mb-4 h-24">
+                    <li>• Provide technical support when dentists take impressions and shading samples</li>
+                    <li>• Provide intra-oral scanner to dentists and design treatment plan</li>
+                  </ul>
+                  <img src="https://i.pinimg.com/736x/69/05/20/690520eac20a2b372e3cfac08f6eb156.jpg" alt="Impression and Scanner" className="w-full h-32 object-cover rounded" />
                 </div>
-              ))}
+                
+                <div className="shrink-0 w-50">
+                  <ul className="text-xs text-gray-700 space-y-1 mb-4 h-24">
+                    <li>• Produce reference model manually or by 3D printer</li>
+                  </ul>
+                  <img src="https://i.pinimg.com/736x/0f/fd/01/0ffd01d5459649db9758123481da3cbf.jpg" alt="Model Production" className="w-full h-32 object-cover rounded" />
+                </div>
+                
+                <div className="shrink-0 w-50">
+                  <ul className="text-xs text-gray-700 space-y-1 mb-4 h-24">
+                    <li>• Product design</li>
+                    <li>• Metal framework: wax and casting or direct fabrication</li>
+                    <li>• Ceramic framework: direct fabrication</li>
+                  </ul>
+                  <img src="https://i.pinimg.com/1200x/83/78/25/83782577160836f1f91ab424104b86db.jpg" alt="Framework Design" className="w-full h-32 object-cover rounded" />
+                </div>
+                
+                <div className="shrink-0 w-50">
+                  <ul className="text-xs text-gray-700 space-y-1 mb-4 h-24">
+                    <li>• Additional porcelain layer to enhance aesthetics</li>
+                  </ul>
+                  <img src="https://i.pinimg.com/1200x/64/f9/3b/64f93bf49c9cabbef02a2980d05649b0.jpg" alt="Ceramic Layer" className="w-full h-32 object-cover rounded" />
+                </div>
+                
+                <div className="shrink-0 w-50">
+                  <ul className="text-xs text-gray-700 space-y-1 mb-4 h-24">
+                    <li>• Quality checks prior to shipment</li>
+                  </ul>
+                  <img src="https://i.pinimg.com/736x/ad/08/58/ad0858f8e857e4d11fc715999e5f1b02.jpg" alt="Quality Assurance" className="w-full h-32 object-cover rounded" />
+                </div>
+                
+                <div className="shrink-0 w-50">
+                  <ul className="text-xs text-gray-700 space-y-1 mb-4 h-24">
+                    <li>• Provide technical support when dentists install our pros these in the end-user's mouth</li>
+                  </ul>
+                  <img src="https://i.pinimg.com/736x/12/0f/2c/120f2c1d90d83725d34ed0e2bd14d85e.jpg" alt="Installation Support" className="w-full h-32 object-cover rounded" />
+                </div>
+              </div>
+            </div>
+            
+            {/* Removable Prosthetic Devices */}
+            <div>
+              <h3 className="text-2xl font-bold mb-6 text-gray-800 border-b-4 border-green-600 inline-block pb-2">Removable Prosthetic Devices</h3>
+              
+              {/* Process Flow */}
+              <div className="flex items-center mb-8 overflow-x-auto w-full">
+                {[
+                  { title: '1) Impression/\n2) Intra-oral Scanner' },
+                  { title: 'Model' },
+                  { title: 'Framework' },
+                  { title: 'Ceramic' },
+                  { title: 'QA' },
+                  { title: 'Installation' }
+                ].map((step, i) => (
+                  <div key={i} className="flex items-center flex-1 min-w-37.5">
+                    <div className={`bg-linear-to-r from-green-600 to-green-700 text-white px-4 py-4 w-full text-center relative h-15 flex items-center justify-center ${i === 0 ? 'rounded-l-lg' : ''} ${i === 5 ? 'rounded-r-lg' : ''}`}>
+                      {i < 5 && (
+                        <div className="absolute right-0 top-0 w-0 h-0 border-t-30 border-t-transparent border-b-30 border-b-transparent border-l-20 border-l-green-700 translate-x-full z-10"></div>
+                      )}
+                      <span className="text-sm font-semibold whitespace-pre-line">{step.title}</span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+              
+              {/* Details and Images Grid */}
+              <div className="flex gap-4 overflow-x-auto">
+                <div className="shrink-0 w-44">
+                  <ul className="text-xs text-gray-700 space-y-1 mb-4 h-24">
+                    <li>• Provide technical support when dentists take impressions and shading samples</li>
+                    <li>• Provide intra-oral scanner to dentists and design treatment plan</li>
+                  </ul>
+                  <img src="https://i.pinimg.com/736x/4f/47/7a/4f477aa14f35271bfc9d42835c576472.jpg" alt="Impression and Scanner" className="w-full h-32 object-cover rounded" />
+                </div>
+                
+                <div className="shrink-0 w-44">
+                  <ul className="text-xs text-gray-700 space-y-1 mb-4 h-24">
+                    <li>• Produce reference model manually or by 3D printer</li>
+                  </ul>
+                  <img src="https://i.pinimg.com/736x/00/8a/ea/008aead2b90b04a4c1c8cba73ceb7dee.jpg" alt="Model Production" className="w-full h-32 object-cover rounded" />
+                </div>
+                
+                <div className="shrink-0 w-44">
+                  <ul className="text-xs text-gray-700 space-y-1 mb-4 h-24">
+                    <li>• Product design</li>
+                    <li>• Optional metal framework: wax and casting or direct fabrication</li>
+                  </ul>
+                  <img src="https://i.pinimg.com/736x/31/90/91/319091f27f456524a5e4ce5349f387f9.jpg" alt="Framework Design" className="w-full h-32 object-cover rounded" />
+                </div>
+                
+                <div className="shrink-0 w-44">
+                  <ul className="text-xs text-gray-700 space-y-1 mb-4 h-24">
+                    <li>• Make a prototype with wax and stock teeth</li>
+                  </ul>
+                  <img src="https://i.pinimg.com/736x/b0/88/03/b08803e6dd8cfc8ab8b71f8925cc7e88.jpg" alt="Prototype Creation" className="w-full h-32 object-cover rounded" />
+                </div>
+                
+                <div className="shrink-0 w-44">
+                  <ul className="text-xs text-gray-700 space-y-1 mb-4 h-24">
+                    <li>• Optional end-user tests and confirms the prototype</li>
+                    <li>• Finalize dentures via plastic injection</li>
+                  </ul>
+                  <img src="https://i.pinimg.com/736x/20/02/bd/2002bde06ed3312a3827e81a76798906.jpg" alt="Completion Process" className="w-full h-32 object-cover rounded" />
+                </div>
+                
+                <div className="shrink-0 w-44">
+                  <ul className="text-xs text-gray-700 space-y-1 mb-4 h-24">
+                    <li>• Quality checks prior to shipment</li>
+                  </ul>
+                  <img src="https://i.pinimg.com/736x/ea/d3/72/ead37246de0e22ce26e26301b30e9d7c.jpg" alt="Quality Assurance" className="w-full h-32 object-cover rounded" />
+                </div>
+                
+                <div className="shrink-0 w-44">
+                  <ul className="text-xs text-gray-700 space-y-1 mb-4 h-24">
+                    <li>• Provide technical support when dentists install our products in the end-user's mouth</li>
+                  </ul>
+                  <img src="https://i.pinimg.com/736x/03/7f/27/037f27565405d72342097475d359c04e.jpg" alt="Installation Support" className="w-full h-32 object-cover rounded" />
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-      )}
+          </div>
+          )}
 
       {/* Search Results Page */}
       {currentPage === 'search' && (
@@ -362,7 +603,7 @@ const DentalEcommerce = () => {
                 type="text"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder="Search for products..."
+                placeholder="Ecodent Search..."
                 className="flex-1 py-4 px-2 text-gray-900 placeholder-gray-500 focus:outline-none"
               />
               {searchQuery && (
