@@ -1,6 +1,6 @@
 'use client';
 
-import { Award, Building2, CheckCircle, Clock, Filter, Laptop, Mail, Menu, Microscope, Monitor, Package, Phone, Search, Shield, ShoppingCart, Star, Upload, X } from 'lucide-react';
+import { Award, Building2, CheckCircle, ChevronDown, Clock, Filter, Laptop, Mail, Menu, Microscope, Monitor, Package, Phone, Search, Shield, ShoppingCart, Star, Upload, X } from 'lucide-react';
 import { useEffect, useState } from 'react';
 
 const DentalEcommerce = () => {
@@ -19,6 +19,8 @@ const DentalEcommerce = () => {
     { id: 2, name: "MouldMaster Elite", price: 3999, image: "https://images.unsplash.com/photo-1581594693702-fbdc51b2763b?w=400&h=300&fit=crop", rating: 4.9, reviews: 89, description: "Advanced 3D mould printing system" },
     { id: 3, name: "ScanPro Lite", price: 1299, image: "https://images.unsplash.com/photo-1530099486328-e021101a494a?w=400&h=300&fit=crop", rating: 4.6, reviews: 203, description: "Compact 3D scanner for dental clinics" }
   ];
+
+  const [mobileDropdown, setMobileDropdown] = useState(null);
 
   const sortOptions = [
     { value: 'best-match', label: 'Best match' },
@@ -116,26 +118,95 @@ const DentalEcommerce = () => {
       <nav className="bg-white border-b border-green-200 sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-20">
-            <button onClick={() => setCurrentPage('home')} className="text-xl font-light text-green-800 tracking-wide">
+            <button onClick={() => setCurrentPage('home')} className="text-xl font-light text-green-800 tracking-wide cursor-pointer">
               Ecodentech
             </button>
 
             {/* Desktop Navigation */}
-            <div className="hidden md:flex space-x-12">
-              {['home', 'shop', 'custom', 'maintenance', 'about'].map(page => (
-                <button 
-                  key={page} 
-                  onClick={() => setCurrentPage(page)}
-                  className={`text-green-800 hover:text-green-600 transition font-light text-sm tracking-wide capitalize border-b-2 hover:border-green-600 ${currentPage === page ? 'border-green-600' : 'border-transparent'}`}
-                >
-                  {page === 'custom' ? 'Custom Moulds' : page === 'about' ? 'How It Works' : page}
+            <div className="hidden md:flex space-x-8">
+              {/* Home */}
+              <button 
+                onClick={() => setCurrentPage('home')}
+                className={`text-green-800 hover:text-green-600 transition font-light text-sm tracking-wide py-2 border-b-2 hover:border-green-600 cursor-pointer ${currentPage === 'home' ? 'border-green-600' : 'border-transparent'}`}
+              >
+                Home
+              </button>
+
+              {/* Job Careers with Dropdown */}
+              <div className="relative group">
+                <button className="text-green-800 hover:text-green-600 transition font-light text-sm tracking-wide flex items-center gap-1 py-2 cursor-pointer">
+                  Job Careers
+                  <ChevronDown className="w-4 h-4" strokeWidth={1.5} />
                 </button>
-              ))}
+                <div className="absolute top-full left-0 mt-1 w-56 bg-white border border-green-200 rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                  <div className="py-2">
+                    <button onClick={() => setCurrentPage('careers-engineering')} className="block w-full text-left px-4 py-2 text-sm text-green-800 hover:bg-green-50 cursor-pointer">
+                      Engineering Positions
+                    </button>
+                    <button onClick={() => setCurrentPage('careers-sales')} className="block w-full text-left px-4 py-2 text-sm text-green-800 hover:bg-green-50 cursor-pointer">
+                      Sales & Marketing
+                    </button>
+                    <button onClick={() => setCurrentPage('careers-production')} className="block w-full text-left px-4 py-2 text-sm text-green-800 hover:bg-green-50 cursor-pointer">
+                      Production Roles
+                    </button>
+                    <button onClick={() => setCurrentPage('careers-admin')} className="block w-full text-left px-4 py-2 text-sm text-green-800 hover:bg-green-50 cursor-pointer">
+                      Administrative
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              {/* Contact Us */}
+              <button 
+                onClick={() => setCurrentPage('contact')}
+                className={`text-green-800 hover:text-green-600 transition font-light text-sm tracking-wide py-2 border-b-2 hover:border-green-600 cursor-pointer ${currentPage === 'contact' ? 'border-green-600' : 'border-transparent'}`}
+              >
+                Contact Us
+              </button>
+
+              {/* About Us with Dropdown */}
+              <div className="relative group">
+                <button className="text-green-800 hover:text-green-600 transition font-light text-sm tracking-wide flex items-center gap-1 py-2 cursor-pointer">
+                  About Us
+                  <ChevronDown className="w-4 h-4" strokeWidth={1.5} />
+                </button>
+                <div className="absolute top-full left-0 mt-1 w-56 bg-white border border-green-200 rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                  <div className="py-2">
+                    <button onClick={() => setCurrentPage('about-history')} className="block w-full text-left px-4 py-2 text-sm text-green-800 hover:bg-green-50 cursor-pointer">
+                      History Times
+                    </button>
+                    <button onClick={() => setCurrentPage('about-board')} className="block w-full text-left px-4 py-2 text-sm text-green-800 hover:bg-green-50 cursor-pointer">
+                      Board Members
+                    </button>
+                    <button onClick={() => setCurrentPage('about-values')} className="block w-full text-left px-4 py-2 text-sm text-green-800 hover:bg-green-50 cursor-pointer">
+                      Our Core Values
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              {/* Our Missions with Dropdown */}
+              <div className="relative group">
+                <button className="text-green-800 hover:text-green-600 transition font-light text-sm tracking-wide flex items-center gap-1 py-2 cursor-pointer">
+                  Our Missions
+                  <ChevronDown className="w-4 h-4" strokeWidth={1.5} />
+                </button>
+                <div className="absolute top-full left-0 mt-1 w-56 bg-white border border-green-200 rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                  <div className="py-2">
+                    <button onClick={() => setCurrentPage('mission-statement')} className="block w-full text-left px-4 py-2 text-sm text-green-800 hover:bg-green-50 cursor-pointer">
+                      Our Missions
+                    </button>
+                    <button onClick={() => setCurrentPage('mission-actions')} className="block w-full text-left px-4 py-2 text-sm text-green-800 hover:bg-green-50 cursor-pointer">
+                      Our Actions
+                    </button>
+                  </div>
+                </div>
+              </div>
             </div>
 
             <div className="hidden md:flex items-center space-x-6">
               <Search className="w-5 h-5 text-green-800 cursor-pointer hover:text-green-600" strokeWidth={1.5} />
-              <div className="relative">
+              <div className="relative cursor-pointer">
                 <ShoppingCart className="w-5 h-5 text-green-800 cursor-pointer hover:text-green-600" strokeWidth={1.5} />
                 {cartItems.length > 0 && (
                   <span className="absolute -top-2 -right-2 bg-green-600 text-white text-xs w-5 h-5 flex items-center justify-center rounded-full">
@@ -146,7 +217,7 @@ const DentalEcommerce = () => {
             </div>
 
             {/* Mobile menu button */}
-            <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className="md:hidden text-green-600">
+            <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className="md:hidden text-green-600 cursor-pointer">
               {mobileMenuOpen ? <X className="w-6 h-6" strokeWidth={1.5} /> : <Menu className="w-6 h-6" strokeWidth={1.5} />}
             </button>
           </div>
@@ -156,21 +227,96 @@ const DentalEcommerce = () => {
         {mobileMenuOpen && (
           <div className="md:hidden bg-white border-t border-green-100">
             <div className="px-2 pt-2 pb-3 space-y-1">
-              {[
-                {p:'home',l:'Home'},
-                {p:'shop',l:'Shop'},
-                {p:'custom',l:'Custom Moulds'},
-                {p:'maintenance',l:'Maintenance'},
-                {p:'about',l:'How It Works'}
-              ].map(({p,l}) => (
+              {/* Home Mobile */}
+              <button 
+                onClick={() => { setCurrentPage('home'); setMobileMenuOpen(false); }} 
+                className="block w-full text-left px-3 py-3 text-green-700 hover:bg-green-50 font-light cursor-pointer"
+              >
+                Home
+              </button>
+
+              {/* Job Careers Mobile */}
+              <div>
                 <button 
-                  key={p} 
-                  onClick={() => { setCurrentPage(p); setMobileMenuOpen(false); }} 
-                  className="block w-full text-left px-3 py-3 text-green-700 hover:bg-green-50 font-light"
+                  onClick={() => setMobileDropdown(mobileDropdown === 'careers' ? null : 'careers')}
+                  className="flex items-center justify-between w-full px-3 py-3 text-green-700 hover:bg-green-50 font-light cursor-pointer"
                 >
-                  {l}
+                  Job Careers
+                  <ChevronDown className={`w-4 h-4 transition-transform ${mobileDropdown === 'careers' ? 'rotate-180' : ''}`} strokeWidth={1.5} />
                 </button>
-              ))}
+                {mobileDropdown === 'careers' && (
+                  <div className="pl-6 space-y-1">
+                    <button onClick={() => { setCurrentPage('careers-engineering'); setMobileMenuOpen(false); }} className="block w-full text-left px-3 py-2 text-sm text-green-700 hover:bg-green-50 cursor-pointer">
+                      Engineering Positions
+                    </button>
+                    <button onClick={() => { setCurrentPage('careers-sales'); setMobileMenuOpen(false); }} className="block w-full text-left px-3 py-2 text-sm text-green-700 hover:bg-green-50 cursor-pointer">
+                      Sales & Marketing
+                    </button>
+                    <button onClick={() => { setCurrentPage('careers-production'); setMobileMenuOpen(false); }} className="block w-full text-left px-3 py-2 text-sm text-green-700 hover:bg-green-50 cursor-pointer">
+                      Production Roles
+                    </button>
+                    <button onClick={() => { setCurrentPage('careers-admin'); setMobileMenuOpen(false); }} className="block w-full text-left px-3 py-2 text-sm text-green-700 hover:bg-green-50 cursor-pointer">
+                      Administrative
+                    </button>
+                  </div>
+                )}
+              </div>
+
+              {/* Contact Us Mobile */}
+              <button 
+                onClick={() => { setCurrentPage('contact'); setMobileMenuOpen(false); }} 
+                className="block w-full text-left px-3 py-3 text-green-700 hover:bg-green-50 font-light cursor-pointer"
+              >
+                Contact Us
+              </button>
+
+              {/* About Us Mobile */}
+              <div>
+                <button 
+                  onClick={() => setMobileDropdown(mobileDropdown === 'about' ? null : 'about')}
+                  className="flex items-center justify-between w-full px-3 py-3 text-green-700 hover:bg-green-50 font-light cursor-pointer"
+                >
+                  About Us
+                  <ChevronDown className={`w-4 h-4 transition-transform ${mobileDropdown === 'about' ? 'rotate-180' : ''}`} strokeWidth={1.5} />
+                </button>
+                {mobileDropdown === 'about' && (
+                  <div className="pl-6 space-y-1">
+                    <button onClick={() => { setCurrentPage('about-history'); setMobileMenuOpen(false); }} className="block w-full text-left px-3 py-2 text-sm text-green-700 hover:bg-green-50 cursor-pointer">
+                      Company History
+                    </button>
+                    <button onClick={() => { setCurrentPage('about-timeline'); setMobileMenuOpen(false); }} className="block w-full text-left px-3 py-2 text-sm text-green-700 hover:bg-green-50 cursor-pointer">
+                      Timeline
+                    </button>
+                    <button onClick={() => { setCurrentPage('about-board'); setMobileMenuOpen(false); }} className="block w-full text-left px-3 py-2 text-sm text-green-700 hover:bg-green-50 cursor-pointer">
+                      Board Members
+                    </button>
+                    <button onClick={() => { setCurrentPage('about-values'); setMobileMenuOpen(false); }} className="block w-full text-left px-3 py-2 text-sm text-green-700 hover:bg-green-50 cursor-pointer">
+                      Our Core Values
+                    </button>
+                  </div>
+                )}
+              </div>
+
+              {/* Our Missions Mobile */}
+              <div>
+                <button 
+                  onClick={() => setMobileDropdown(mobileDropdown === 'missions' ? null : 'missions')}
+                  className="flex items-center justify-between w-full px-3 py-3 text-green-700 hover:bg-green-50 font-light cursor-pointer"
+                >
+                  Our Missions
+                  <ChevronDown className={`w-4 h-4 transition-transform ${mobileDropdown === 'missions' ? 'rotate-180' : ''}`} strokeWidth={1.5} />
+                </button>
+                {mobileDropdown === 'missions' && (
+                  <div className="pl-6 space-y-1">
+                    <button onClick={() => { setCurrentPage('mission-statement'); setMobileMenuOpen(false); }} className="block w-full text-left px-3 py-2 text-sm text-green-700 hover:bg-green-50 cursor-pointer">
+                      Mission Statement
+                    </button>
+                    <button onClick={() => { setCurrentPage('mission-actions'); setMobileMenuOpen(false); }} className="block w-full text-left px-3 py-2 text-sm text-green-700 hover:bg-green-50 cursor-pointer">
+                      Our Actions
+                    </button>
+                  </div>
+                )}
+              </div>
             </div>
           </div>
         )}
@@ -227,7 +373,7 @@ const DentalEcommerce = () => {
           <div className="bg-white border-t border-b border-green-200 py-16">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <div className="grid grid-cols-2 md:grid-cols-4 gap-12 text-center">
-                {[{n:'5K+',l:'Moulds Created'},{n:'40+',l:'Satisfaction Rate'},{n:'1+',l:'Dental Clinics'},{n:'10 Years',l:'Experience'}].map((stat,i) => (
+                {[{n:'5K+',l:'Our Revenues'},{n:'40+',l:'Our Employees'},{n:'1+',l:'Dental Clinics'},{n:'10 Years',l:'Experience'}].map((stat,i) => (
                   <div key={i}><div className="text-4xl font-light text-green-600 mb-2">{stat.n}</div><div className="text-green-800 text-sm tracking-wide uppercase">{stat.l}</div></div>
                 ))}
               </div>
@@ -394,36 +540,37 @@ const DentalEcommerce = () => {
               ))}
             </div>
           </div>
-          {/* Featured Products Section */}
-          <div className="bg-green-50 py-24">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              <h2 className="text-4xl font-bold text-center mb-20 text-green-600">Our Partnership</h2>
-              <div className="grid md:grid-cols-3 gap-12">
-                {products.map(product => (
-                  <div key={product.id} className="bg-green-600 rounded-xl overflow-hidden group">
-                    <div className="overflow-hidden">
-                      <img src={product.image} alt={product.name} className="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-500" />
-                    </div>
-                    <div className="p-8">
-                      <h3 className="text-xl font-light mb-2 text-white">{product.name}</h3>
-                      <p className="text-blue-50 mb-6 text-sm">{product.description}</p>
-                      <div className="flex items-center mb-6">
-                        <div className="flex items-center text-yellow-400">
-                          <Star className="w-4 h-4 fill-current" />
-                          <span className="ml-2 text-sm">{product.rating}</span>
-                        </div>
-                        <span className="text-blue-50 text-sm ml-3">({product.reviews})</span>
-                      </div>
-                      <div className="flex items-center justify-between border-t border-green-200 pt-6">
-                        <span className="text-2xl font-light text-blue-50">${product.price}</span>
-                        <button onClick={() => addToCart(product)} className="border border-blue-50 rounded-full text-blue-50 px-6 py-3 font-light hover:bg-blue-50 hover:text-green-800 transition text-sm">Add to Cart</button>
-                      </div>
+          
+          {/* Partnership Section */}
+          <div className="bg-linear-to-br from-green-600 via-green-500 to-green-400 py-24">
+            <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-20">
+              <h2 className="text-4xl font-bold text-center mb-20 text-white">OUR PARTNERSHIPS</h2>
+              <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-5 gap-6">
+                {[
+                  '/images/logo1.png',
+                  '/images/logo2.png',
+                  '/images/logo3.png',
+                  '/images/logo4.png',
+                  '/images/logo5.png',
+                  '/images/logo6.png',
+                  '/images/logo7.png',
+                  '/images/logo8.png',
+                  '/images/logo9.png',
+                  '/images/logo10.png'
+                ].map((logo, index) => (
+                  <div 
+                    key={index} 
+                    className="bg-white/20 backdrop-blur-sm rounded-2xl p-6 flex items-center justify-center hover:bg-white/40 transition-all duration-300 aspect-square border border-white/10"
+                  >
+                    <div className="text-center w-full">
+                      <img 
+                        src={logo} 
+                        alt={`${index + 1}`} 
+                        className="w-full h-16 object-contain mx-auto"
+                      />
                     </div>
                   </div>
                 ))}
-              </div>
-              <div className="text-center mt-16">
-                <button onClick={() => setCurrentPage('shop')} className="border border-green-700 rounded-full text-green-600 px-10 py-4 font-light hover:bg-green-600 hover:text-white transition">View All Products</button>
               </div>
             </div>
           </div>
@@ -437,7 +584,8 @@ const DentalEcommerce = () => {
               <h3 className="text-2xl font-bold mb-6 text-gray-800 border-b-4 border-green-600 inline-block pb-2">Fixed Prosthetic Devices</h3>
               
               {/* Process Flow */}
-              <div className="flex items-center mb-8 overflow-x-auto w-full">
+              <div className="overflow-x-auto lg:overflow-x-visible">
+              <div className="flex items-center mb-8 w-full min-w-225 lg:min-w-0">
                 {[
                   { title: '1) Impression/\n2) Intra-oral Scanner' },
                   { title: 'Model' },
@@ -446,7 +594,7 @@ const DentalEcommerce = () => {
                   { title: 'QA' },
                   { title: 'Installation' }
                 ].map((step, i) => (
-                  <div key={i} className="flex items-center flex-1 min-w-37.5">
+                  <div key={i} className="flex items-center flex-1">
                     <div className={`bg-linear-to-r from-green-600 to-green-700 text-white px-4 py-4 w-full text-center relative h-15 flex items-center justify-center ${i === 0 ? 'rounded-l-lg' : ''} ${i === 5 ? 'rounded-r-lg' : ''}`}>
                       {i < 5 && (
                         <div className="absolute right-0 top-0 w-0 h-0 border-t-30 border-t-transparent border-b-30 border-b-transparent border-l-20 border-l-green-700 translate-x-full z-10"></div>
@@ -458,8 +606,8 @@ const DentalEcommerce = () => {
               </div>
               
               {/* Details and Images Grid */}
-              <div className="flex gap-4 overflow-x-auto">
-                <div className="shrink-0 w-50">
+              <div className="flex gap-4 min-w-225 lg:min-w-0 lg:grid lg:grid-cols-6">
+                <div className="flex-1 lg:w-auto">
                   <ul className="text-xs text-gray-700 space-y-1 mb-4 h-24">
                     <li>• Provide technical support when dentists take impressions and shading samples</li>
                     <li>• Provide intra-oral scanner to dentists and design treatment plan</li>
@@ -467,14 +615,14 @@ const DentalEcommerce = () => {
                   <img src="https://i.pinimg.com/736x/69/05/20/690520eac20a2b372e3cfac08f6eb156.jpg" alt="Impression and Scanner" className="w-full h-32 object-cover rounded" />
                 </div>
                 
-                <div className="shrink-0 w-50">
+                <div className="flex-1 lg:w-auto">
                   <ul className="text-xs text-gray-700 space-y-1 mb-4 h-24">
                     <li>• Produce reference model manually or by 3D printer</li>
                   </ul>
                   <img src="https://i.pinimg.com/736x/0f/fd/01/0ffd01d5459649db9758123481da3cbf.jpg" alt="Model Production" className="w-full h-32 object-cover rounded" />
                 </div>
                 
-                <div className="shrink-0 w-50">
+                <div className="flex-1 lg:w-auto">
                   <ul className="text-xs text-gray-700 space-y-1 mb-4 h-24">
                     <li>• Product design</li>
                     <li>• Metal framework: wax and casting or direct fabrication</li>
@@ -483,21 +631,21 @@ const DentalEcommerce = () => {
                   <img src="https://i.pinimg.com/1200x/83/78/25/83782577160836f1f91ab424104b86db.jpg" alt="Framework Design" className="w-full h-32 object-cover rounded" />
                 </div>
                 
-                <div className="shrink-0 w-50">
+                <div className="flex-1 lg:w-auto">
                   <ul className="text-xs text-gray-700 space-y-1 mb-4 h-24">
                     <li>• Additional porcelain layer to enhance aesthetics</li>
                   </ul>
                   <img src="https://i.pinimg.com/1200x/64/f9/3b/64f93bf49c9cabbef02a2980d05649b0.jpg" alt="Ceramic Layer" className="w-full h-32 object-cover rounded" />
                 </div>
                 
-                <div className="shrink-0 w-50">
+                <div className="flex-1 lg:w-auto">
                   <ul className="text-xs text-gray-700 space-y-1 mb-4 h-24">
                     <li>• Quality checks prior to shipment</li>
                   </ul>
                   <img src="https://i.pinimg.com/736x/ad/08/58/ad0858f8e857e4d11fc715999e5f1b02.jpg" alt="Quality Assurance" className="w-full h-32 object-cover rounded" />
                 </div>
                 
-                <div className="shrink-0 w-50">
+                <div className="flex-1 lg:w-auto">
                   <ul className="text-xs text-gray-700 space-y-1 mb-4 h-24">
                     <li>• Provide technical support when dentists install our pros these in the end-user's mouth</li>
                   </ul>
@@ -505,13 +653,15 @@ const DentalEcommerce = () => {
                 </div>
               </div>
             </div>
+            </div>
             
             {/* Removable Prosthetic Devices */}
             <div>
               <h3 className="text-2xl font-bold mb-6 text-gray-800 border-b-4 border-green-600 inline-block pb-2">Removable Prosthetic Devices</h3>
               
               {/* Process Flow */}
-              <div className="flex items-center mb-8 overflow-x-auto w-full">
+              <div className="overflow-x-auto lg:overflow-x-visible">
+              <div className="flex items-center mb-8 w-full min-w-225 lg:min-w-0">
                 {[
                   { title: '1) Impression/\n2) Intra-oral Scanner' },
                   { title: 'Model' },
@@ -520,7 +670,7 @@ const DentalEcommerce = () => {
                   { title: 'QA' },
                   { title: 'Installation' }
                 ].map((step, i) => (
-                  <div key={i} className="flex items-center flex-1 min-w-37.5">
+                  <div key={i} className="flex items-center flex-1">
                     <div className={`bg-linear-to-r from-green-600 to-green-700 text-white px-4 py-4 w-full text-center relative h-15 flex items-center justify-center ${i === 0 ? 'rounded-l-lg' : ''} ${i === 5 ? 'rounded-r-lg' : ''}`}>
                       {i < 5 && (
                         <div className="absolute right-0 top-0 w-0 h-0 border-t-30 border-t-transparent border-b-30 border-b-transparent border-l-20 border-l-green-700 translate-x-full z-10"></div>
@@ -530,10 +680,10 @@ const DentalEcommerce = () => {
                   </div>
                 ))}
               </div>
-              
+  
               {/* Details and Images Grid */}
-              <div className="flex gap-4 overflow-x-auto">
-                <div className="shrink-0 w-44">
+              <div className="flex gap-4 min-w-225 lg:min-w-0 lg:grid lg:grid-cols-6">
+                <div className="flex-1 lg:w-auto">
                   <ul className="text-xs text-gray-700 space-y-1 mb-4 h-24">
                     <li>• Provide technical support when dentists take impressions and shading samples</li>
                     <li>• Provide intra-oral scanner to dentists and design treatment plan</li>
@@ -541,14 +691,14 @@ const DentalEcommerce = () => {
                   <img src="https://i.pinimg.com/736x/4f/47/7a/4f477aa14f35271bfc9d42835c576472.jpg" alt="Impression and Scanner" className="w-full h-32 object-cover rounded" />
                 </div>
                 
-                <div className="shrink-0 w-44">
+                <div className="flex-1 lg:w-auto">
                   <ul className="text-xs text-gray-700 space-y-1 mb-4 h-24">
                     <li>• Produce reference model manually or by 3D printer</li>
                   </ul>
                   <img src="https://i.pinimg.com/736x/00/8a/ea/008aead2b90b04a4c1c8cba73ceb7dee.jpg" alt="Model Production" className="w-full h-32 object-cover rounded" />
                 </div>
                 
-                <div className="shrink-0 w-44">
+                <div className="flex-1 lg:w-auto">
                   <ul className="text-xs text-gray-700 space-y-1 mb-4 h-24">
                     <li>• Product design</li>
                     <li>• Optional metal framework: wax and casting or direct fabrication</li>
@@ -556,14 +706,14 @@ const DentalEcommerce = () => {
                   <img src="https://i.pinimg.com/736x/31/90/91/319091f27f456524a5e4ce5349f387f9.jpg" alt="Framework Design" className="w-full h-32 object-cover rounded" />
                 </div>
                 
-                <div className="shrink-0 w-44">
+                <div className="flex-1 lg:w-auto">
                   <ul className="text-xs text-gray-700 space-y-1 mb-4 h-24">
                     <li>• Make a prototype with wax and stock teeth</li>
                   </ul>
                   <img src="https://i.pinimg.com/736x/b0/88/03/b08803e6dd8cfc8ab8b71f8925cc7e88.jpg" alt="Prototype Creation" className="w-full h-32 object-cover rounded" />
                 </div>
                 
-                <div className="shrink-0 w-44">
+                <div className="flex-1 lg:w-auto">
                   <ul className="text-xs text-gray-700 space-y-1 mb-4 h-24">
                     <li>• Optional end-user tests and confirms the prototype</li>
                     <li>• Finalize dentures via plastic injection</li>
@@ -571,20 +721,14 @@ const DentalEcommerce = () => {
                   <img src="https://i.pinimg.com/736x/20/02/bd/2002bde06ed3312a3827e81a76798906.jpg" alt="Completion Process" className="w-full h-32 object-cover rounded" />
                 </div>
                 
-                <div className="shrink-0 w-44">
+                <div className="flex-1 lg:w-auto">
                   <ul className="text-xs text-gray-700 space-y-1 mb-4 h-24">
                     <li>• Quality checks prior to shipment</li>
                   </ul>
                   <img src="https://i.pinimg.com/736x/ea/d3/72/ead37246de0e22ce26e26301b30e9d7c.jpg" alt="Quality Assurance" className="w-full h-32 object-cover rounded" />
                 </div>
-                
-                <div className="shrink-0 w-44">
-                  <ul className="text-xs text-gray-700 space-y-1 mb-4 h-24">
-                    <li>• Provide technical support when dentists install our products in the end-user's mouth</li>
-                  </ul>
-                  <img src="https://i.pinimg.com/736x/03/7f/27/037f27565405d72342097475d359c04e.jpg" alt="Installation Support" className="w-full h-32 object-cover rounded" />
-                </div>
               </div>
+            </div>
             </div>
           </div>
           </div>
