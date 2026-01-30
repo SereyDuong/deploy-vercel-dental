@@ -773,7 +773,7 @@ const DentalEcommerce = () => {
                         id="name"
                         name="name"
                         required
-                        className="w-full px-4 py-3 border border-green-200 rounded-lg focus:outline-none focus:border-green-500"
+                        className="w-full px-4 py-3 border border-green-200 rounded-lg focus:outline-none focus:border-green-500 text-gray-900"
                         placeholder="Your name"
                       />
                     </div>
@@ -785,7 +785,7 @@ const DentalEcommerce = () => {
                         id="email"
                         name="email"
                         required
-                        className="w-full px-4 py-3 border border-green-200 rounded-lg focus:outline-none focus:border-green-500"
+                        className="w-full px-4 py-3 border border-green-200 rounded-lg focus:outline-none focus:border-green-500 text-gray-900" 
                         placeholder="your.email@example.com"
                       />
                     </div>
@@ -797,7 +797,7 @@ const DentalEcommerce = () => {
                         name="message"
                         rows="5"
                         required
-                        className="w-full px-4 py-3 border border-green-200 rounded-lg focus:outline-none focus:border-green-500"
+                        className="w-full px-4 py-3 border border-green-200 rounded-lg focus:outline-none focus:border-green-500 text-gray-900"
                         placeholder="How can we help you?"
                       />
                     </div>
