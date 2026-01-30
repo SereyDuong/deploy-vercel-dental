@@ -541,39 +541,6 @@ const DentalEcommerce = () => {
             </div>
           </div>
           
-          {/* Partnership Section */}
-          <div className="bg-linear-to-br from-green-600 via-green-500 to-green-400 py-24">
-            <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-20">
-              <h2 className="text-4xl font-bold text-center mb-20 text-white">OUR PARTNERSHIPS</h2>
-              <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-5 gap-6">
-                {[
-                  '/images/logo1.png',
-                  '/images/logo2.png',
-                  '/images/logo3.png',
-                  '/images/logo4.png',
-                  '/images/logo5.png',
-                  '/images/logo6.png',
-                  '/images/logo7.png',
-                  '/images/logo8.png',
-                  '/images/logo9.png',
-                  '/images/logo10.png'
-                ].map((logo, index) => (
-                  <div 
-                    key={index} 
-                    className="bg-white/20 backdrop-blur-sm rounded-2xl p-6 flex items-center justify-center hover:bg-white/40 transition-all duration-300 aspect-square border border-white/10"
-                  >
-                    <div className="text-center w-full">
-                      <img 
-                        src={logo} 
-                        alt={`${index + 1}`} 
-                        className="w-full h-16 object-contain mx-auto"
-                      />
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
 
           {/* How It Works Section */}
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
@@ -731,7 +698,40 @@ const DentalEcommerce = () => {
             </div>
             </div>
           </div>
+          
+          {/* Partnership Section */}
+            <div className="max-w-4xl mx-auto mt-20 px-4 sm:px-6 lg:px-20">
+              <h2 className="text-4xl font-bold text-center mb-20 text-green-600">OUR PARTNERSHIPS</h2>
+              <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-5 gap-6">
+                {[
+                  '/images/logo1.svg',
+                  '/images/logo2.svg',
+                  '/images/logo3.svg',
+                  '/images/logo4.svg',
+                  '/images/logo5.svg',
+                  '/images/logo6.svg',
+                  '/images/logo7.svg',
+                  '/images/logo8.svg',
+                  '/images/logo9.svg',
+                  '/images/logo10.svg'
+                ].map((logo, index) => (
+                  <div 
+                    key={index} 
+                    className="bg-green-100 backdrop-blur-sm rounded-2xl p-6 flex items-center justify-center hover:bg-green-200 transition-all duration-300 aspect-square"
+                  >
+                    <div className="text-center w-full">
+                      <img 
+                        src={logo} 
+                        alt={`${index + 1}`} 
+                        className="w-full h-16 object-contain mx-auto"
+                      />
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
+
           )}
 
       {/* Search Results Page */}
