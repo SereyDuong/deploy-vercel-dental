@@ -1,6 +1,6 @@
 'use client';
 
-import { Award, Briefcase, Building2, CheckCircle, ChevronDown, Clock, DollarSign, Filter, Laptop, Mail, MapPin, Menu, Microscope, Monitor, Package, Phone, Search, Shield, ShoppingCart, Star, Upload, X } from 'lucide-react';
+import { Award, Briefcase, Building2, CheckCircle, Clock, DollarSign, Filter, Laptop, Mail, MapPin, Menu, Microscope, Monitor, Package, Phone, Search, Shield, ShoppingCart, Star, Upload, X } from 'lucide-react';
 import { useEffect, useState } from 'react';
 
 const DentalEcommerce = () => {
@@ -340,126 +340,45 @@ const DentalEcommerce = () => {
                   Home
                 </button>
 
-                {/* Job Careers with Dropdown */}
-                <div className="relative group">
-                  <button className="text-green-800 hover:text-green-600 transition font-light text-sm tracking-wide flex items-center gap-1 py-2 cursor-pointer">
-                    Job Careers
-                    <ChevronDown className="w-4 h-4" strokeWidth={1.5} />
-                  </button>
-                  <div className="absolute top-full left-0 mt-1 w-64 bg-white border border-green-200 rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
-                    <div className="py-2">
-                      <button 
-                        onClick={() => {
-                          setCurrentPage('careers-engineering');
-                          setSelectedJob(jobs[0]);
-                        }} 
-                        className="block w-full text-left px-4 py-2 text-sm text-green-800 hover:bg-green-50 cursor-pointer transition"
-                      >
-                        Senior Mechanical Engineer
-                      </button>
-                      <button 
-                        onClick={() => {
-                          setCurrentPage('careers-engineering');
-                          setSelectedJob(jobs[1]);
-                        }} 
-                        className="block w-full text-left px-4 py-2 text-sm text-green-800 hover:bg-green-50 cursor-pointer transition"
-                      >
-                        Electrical Engineer
-                      </button>
-                      <button 
-                        onClick={() => {
-                          setCurrentPage('careers-engineering');
-                          setSelectedJob(jobs[2]);
-                        }} 
-                        className="block w-full text-left px-4 py-2 text-sm text-green-800 hover:bg-green-50 cursor-pointer transition"
-                      >
-                        Software Engineer - IoT
-                      </button>
-                      <button 
-                        onClick={() => {
-                          setCurrentPage('careers-engineering');
-                          setSelectedJob(jobs[3]);
-                        }} 
-                        className="block w-full text-left px-4 py-2 text-sm text-green-800 hover:bg-green-50 cursor-pointer transition"
-                      >
-                        Junior Design Engineer
-                      </button>
-                      <button 
-                        onClick={() => {
-                          setCurrentPage('careers-engineering');
-                          setSelectedJob(jobs[4]);
-                        }} 
-                        className="block w-full text-left px-4 py-2 text-sm text-green-800 hover:bg-green-50 cursor-pointer transition"
-                      >
-                        Robotics Engineer
-                      </button>
-                    </div>
-                  </div>
-                </div>
+                {/* Job Careers */}
+                <button 
+                  onClick={() => setCurrentPage('job-careers')}
+                  className={`text-green-800 hover:text-green-600 transition font-light text-sm tracking-wide py-2 border-b-2 hover:border-green-600 cursor-pointer ${
+                    currentPage === 'job-careers' ? 'border-green-600' : 'border-transparent'
+                  }`}
+                >
+                  Job Careers
+                </button>
 
                 {/* Contact Us */}
                 <button 
-                  onClick={() => setCurrentPage('contact')}
+                  onClick={() => setCurrentPage('contact-us')}
                   className={`text-green-800 hover:text-green-600 transition font-light text-sm tracking-wide py-2 border-b-2 hover:border-green-600 cursor-pointer ${
-                    currentPage === 'contact' ? 'border-green-600' : 'border-transparent'
+                    currentPage === 'contact-us' ? 'border-green-600' : 'border-transparent'
                   }`}
                 >
                   Contact Us
                 </button>
 
-                {/* About Us with Dropdown */}
-                <div className="relative group">
-                  <button className="text-green-800 hover:text-green-600 transition font-light text-sm tracking-wide flex items-center gap-1 py-2 cursor-pointer">
-                    About Us
-                    <ChevronDown className="w-4 h-4" strokeWidth={1.5} />
-                  </button>
-                  <div className="absolute top-full left-0 mt-1 w-56 bg-white border border-green-200 rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
-                    <div className="py-2">
-                      <button 
-                        onClick={() => setCurrentPage('about-history')} 
-                        className="block w-full text-left px-4 py-2 text-sm text-green-800 hover:bg-green-50 cursor-pointer transition"
-                      >
-                        History Times
-                      </button>
-                      <button 
-                        onClick={() => setCurrentPage('about-board')} 
-                        className="block w-full text-left px-4 py-2 text-sm text-green-800 hover:bg-green-50 cursor-pointer transition"
-                      >
-                        Board Members
-                      </button>
-                      <button 
-                        onClick={() => setCurrentPage('about-values')} 
-                        className="block w-full text-left px-4 py-2 text-sm text-green-800 hover:bg-green-50 cursor-pointer transition"
-                      >
-                        Our Core Values
-                      </button>
-                    </div>
-                  </div>
-                </div>
+                {/* About Us*/}
+                <button 
+                  onClick={() => setCurrentPage('about-us')}
+                  className={`text-green-800 hover:text-green-600 transition font-light text-sm tracking-wide py-2 border-b-2 hover:border-green-600 cursor-pointer ${
+                    currentPage === 'about-us' ? 'border-green-600' : 'border-transparent'
+                  }`}
+                >
+                  About Us
+                </button>
 
                 {/* Our Missions with Dropdown */}
-                <div className="relative group">
-                  <button className="text-green-800 hover:text-green-600 transition font-light text-sm tracking-wide flex items-center gap-1 py-2 cursor-pointer">
-                    Our Missions
-                    <ChevronDown className="w-4 h-4" strokeWidth={1.5} />
-                  </button>
-                  <div className="absolute top-full left-0 mt-1 w-56 bg-white border border-green-200 rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
-                    <div className="py-2">
-                      <button 
-                        onClick={() => setCurrentPage('mission-statement')} 
-                        className="block w-full text-left px-4 py-2 text-sm text-green-800 hover:bg-green-50 cursor-pointer transition"
-                      >
-                        Our Missions
-                      </button>
-                      <button 
-                        onClick={() => setCurrentPage('mission-actions')} 
-                        className="block w-full text-left px-4 py-2 text-sm text-green-800 hover:bg-green-50 cursor-pointer transition"
-                      >
-                        Our Actions
-                      </button>
-                    </div>
-                  </div>
-                </div>
+                <button 
+                  onClick={() => setCurrentPage('missions')}
+                  className={`text-green-800 hover:text-green-600 transition font-light text-sm tracking-wide py-2 border-b-2 hover:border-green-600 cursor-pointer ${
+                    currentPage === 'missions' ? 'border-green-600' : 'border-transparent'
+                  }`}
+                >
+                  Our Missions
+                </button>
               </div>
 
               <div className="hidden md:flex items-center space-x-6">
@@ -503,62 +422,7 @@ const DentalEcommerce = () => {
                     className="flex items-center justify-between w-full px-3 py-3 text-green-900 hover:bg-green-50 font-light cursor-pointer"
                   >
                     Job Careers
-                    <ChevronDown className={`w-4 h-4 transition-transform ${mobileDropdown === 'careers' ? 'rotate-180' : ''}`} strokeWidth={1.5} />
                   </button>
-                  {mobileDropdown === 'careers' && (
-                    <div className="pl-6 space-y-1">
-                      <button 
-                        onClick={() => { 
-                          setCurrentPage('careers-engineering'); 
-                          setSelectedJob(jobs[0]);
-                          setMobileMenuOpen(false); 
-                        }} 
-                        className="block w-full text-left px-3 py-2 text-sm text-green-900 hover:bg-green-50 cursor-pointer"
-                      >
-                        Senior Mechanical Engineer
-                      </button>
-                      <button 
-                        onClick={() => { 
-                          setCurrentPage('careers-engineering'); 
-                          setSelectedJob(jobs[1]);
-                          setMobileMenuOpen(false); 
-                        }} 
-                        className="block w-full text-left px-3 py-2 text-sm text-green-900 hover:bg-green-50 cursor-pointer"
-                      >
-                        Electrical Engineer
-                      </button>
-                      <button 
-                        onClick={() => { 
-                          setCurrentPage('careers-engineering'); 
-                          setSelectedJob(jobs[2]);
-                          setMobileMenuOpen(false); 
-                        }} 
-                        className="block w-full text-left px-3 py-2 text-sm text-green-900 hover:bg-green-50 cursor-pointer"
-                      >
-                        Software Engineer - IoT
-                      </button>
-                      <button 
-                        onClick={() => { 
-                          setCurrentPage('careers-engineering'); 
-                          setSelectedJob(jobs[3]);
-                          setMobileMenuOpen(false); 
-                        }} 
-                        className="block w-full text-left px-3 py-2 text-sm text-green-900 hover:bg-green-50 cursor-pointer"
-                      >
-                        Junior Design Engineer
-                      </button>
-                      <button 
-                        onClick={() => { 
-                          setCurrentPage('careers-engineering'); 
-                          setSelectedJob(jobs[4]);
-                          setMobileMenuOpen(false); 
-                        }} 
-                        className="block w-full text-left px-3 py-2 text-sm text-green-900 hover:bg-green-50 cursor-pointer"
-                      >
-                        Robotics Engineer
-                      </button>
-                    </div>
-                  )}
                 </div>
 
                 {/* Contact Us Mobile */}
@@ -576,30 +440,7 @@ const DentalEcommerce = () => {
                     className="flex items-center justify-between w-full px-3 py-3 text-green-900 hover:bg-green-50 font-light cursor-pointer"
                   >
                     About Us
-                    <ChevronDown className={`w-4 h-4 transition-transform ${mobileDropdown === 'about' ? 'rotate-180' : ''}`} strokeWidth={1.5} />
                   </button>
-                  {mobileDropdown === 'about' && (
-                    <div className="pl-6 space-y-1">
-                      <button 
-                        onClick={() => { setCurrentPage('about-history'); setMobileMenuOpen(false); }} 
-                        className="block w-full text-left px-3 py-2 text-sm text-green-900 hover:bg-green-50 cursor-pointer"
-                      >
-                        History Times
-                      </button>
-                      <button 
-                        onClick={() => { setCurrentPage('about-board'); setMobileMenuOpen(false); }} 
-                        className="block w-full text-left px-3 py-2 text-sm text-green-900 hover:bg-green-50 cursor-pointer"
-                      >
-                        Board Members
-                      </button>
-                      <button 
-                        onClick={() => { setCurrentPage('about-values'); setMobileMenuOpen(false); }} 
-                        className="block w-full text-left px-3 py-2 text-sm text-green-900 hover:bg-green-50 cursor-pointer"
-                      >
-                        Our Core Values
-                      </button>
-                    </div>
-                  )}
                 </div>
 
                 {/* Our Missions Mobile */}
@@ -609,24 +450,7 @@ const DentalEcommerce = () => {
                     className="flex items-center justify-between w-full px-3 py-3 text-green-900 hover:bg-green-50 font-light cursor-pointer"
                   >
                     Our Missions
-                    <ChevronDown className={`w-4 h-4 transition-transform ${mobileDropdown === 'missions' ? 'rotate-180' : ''}`} strokeWidth={1.5} />
                   </button>
-                  {mobileDropdown === 'missions' && (
-                    <div className="pl-6 space-y-1">
-                      <button 
-                        onClick={() => { setCurrentPage('mission-statement'); setMobileMenuOpen(false); }} 
-                        className="block w-full text-left px-3 py-2 text-sm text-green-900 hover:bg-green-50 cursor-pointer"
-                      >
-                        Our Missions
-                      </button>
-                      <button 
-                        onClick={() => { setCurrentPage('mission-actions'); setMobileMenuOpen(false); }} 
-                        className="block w-full text-left px-3 py-2 text-sm text-green-900 hover:bg-green-50 cursor-pointer"
-                      >
-                        Our Actions
-                      </button>
-                    </div>
-                  )}
                 </div>
               </div>
             </div>
@@ -634,7 +458,7 @@ const DentalEcommerce = () => {
         </nav>
 
         {/* Page Content */}
-        {currentPage === 'careers-engineering' && (
+        {currentPage === 'job-careers' && (
           <>
             {/* Header */}
             <div className="bg-linear-to-br from-green-700 via-green-600 to-green-500 text-white py-20 relative overflow-hidden">
@@ -921,6 +745,271 @@ const DentalEcommerce = () => {
             </div>
           </>
         )}
+
+        {/* Contact Us Page */}
+        {currentPage === 'contact-us' && (
+          <>
+            <div className="min-h-screen bg-linear-to-b from-green-50 to-white py-16 px-4">
+              <div className="max-w-4xl mx-auto">
+                <h1 className="text-4xl font-light text-green-900 mb-8">Contact Us</h1>
+                
+                <div className="bg-white rounded-lg shadow-lg p-8 mb-8">
+                  <h2 className="text-2xl font-light text-green-800 mb-6">Get in Touch</h2>
+                  <p className="text-green-700 mb-8">
+                    We'd love to hear from you. Fill out the form below and we'll get back to you as soon as possible.
+                  </p>
+                  
+                  <form className="space-y-6" onSubmit={(e) => {
+                    e.preventDefault();
+                    // Handle form submission
+                    const formData = new FormData(e.target);
+                    console.log('Form submitted:', Object.fromEntries(formData));
+                    // Add your submission logic here
+                  }}>
+                    <div>
+                      <label htmlFor="name" className="block text-green-900 font-light mb-2">Name</label>
+                      <input 
+                        type="text"
+                        id="name"
+                        name="name"
+                        required
+                        className="w-full px-4 py-3 border border-green-200 rounded-lg focus:outline-none focus:border-green-500"
+                        placeholder="Your name"
+                      />
+                    </div>
+                    
+                    <div>
+                      <label htmlFor="email" className="block text-green-900 font-light mb-2">Email</label>
+                      <input 
+                        type="email"
+                        id="email"
+                        name="email"
+                        required
+                        className="w-full px-4 py-3 border border-green-200 rounded-lg focus:outline-none focus:border-green-500"
+                        placeholder="your.email@example.com"
+                      />
+                    </div>
+                    
+                    <div>
+                      <label htmlFor="message" className="block text-green-900 font-light mb-2">Message</label>
+                      <textarea 
+                        id="message"
+                        name="message"
+                        rows="5"
+                        required
+                        className="w-full px-4 py-3 border border-green-200 rounded-lg focus:outline-none focus:border-green-500"
+                        placeholder="How can we help you?"
+                      />
+                    </div>
+                    
+                    <button 
+                      type="submit"
+                      className="w-full bg-green-600 text-white py-3 rounded-lg hover:bg-green-700 transition-colors font-light"
+                    >
+                      Send Message
+                    </button>
+                  </form>
+                </div>
+                
+                <div className="grid md:grid-cols-3 gap-6">
+                  <div className="bg-green-50 p-6 rounded-lg">
+                    <h3 className="text-lg font-light text-green-900 mb-3">Email</h3>
+                    <a href="mailto:info@company.com" className="text-green-700 hover:text-green-900">
+                      info@company.com
+                    </a>
+                  </div>
+                  
+                  <div className="bg-green-50 p-6 rounded-lg">
+                    <h3 className="text-lg font-light text-green-900 mb-3">Phone</h3>
+                    <a href="tel:+15551234567" className="text-green-700 hover:text-green-900">
+                      +1 (555) 123-4567
+                    </a>
+                  </div>
+                  
+                  <div className="bg-green-50 p-6 rounded-lg">
+                    <h3 className="text-lg font-light text-green-900 mb-3">Address</h3>
+                    <p className="text-green-700">123 Green Street, Suite 100</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </>
+        )}
+
+        {/* About Us Page */}
+        {currentPage === 'about-us' && (
+        <>
+          <div className="min-h-screen bg-linear-to-b from-green-50 to-white border border-green-200 py-16 px-4">
+            <div className="max-w-4xl mx-auto">
+              <h1 className="text-4xl font-light text-green-900 mb-8">About Us</h1>
+              
+              <div className="bg-white rounded-lg shadow-lg p-8 mb-8">
+                <h2 className="text-2xl font-light text-green-800 mb-4">Our Story</h2>
+                <p className="text-green-700 mb-6 leading-relaxed">
+                  Founded in 2020, we've been dedicated to making a positive impact on our community 
+                  and the environment. Our journey began with a simple idea: to create sustainable 
+                  solutions that benefit both people and the planet.
+                </p>
+                
+                <p className="text-green-700 mb-6 leading-relaxed">
+                  Today, we're proud to serve thousands of customers worldwide, helping them achieve 
+                  their goals while maintaining our commitment to sustainability and social responsibility.
+                </p>
+              </div>
+              
+              <div className="bg-white rounded-lg shadow-lg p-8 mb-8">
+                <h2 className="text-2xl font-light text-green-800 mb-6">Our Values</h2>
+                
+                <div className="space-y-6">
+                  <div className="border-l-4 border-green-500 pl-6">
+                    <h3 className="text-xl font-light text-green-900 mb-2">Sustainability</h3>
+                    <p className="text-green-700">
+                      We prioritize environmental responsibility in everything we do, from our 
+                      operations to our product design.
+                    </p>
+                  </div>
+                  
+                  <div className="border-l-4 border-green-500 pl-6">
+                    <h3 className="text-xl font-light text-green-900 mb-2">Innovation</h3>
+                    <p className="text-green-700">
+                      We continuously seek new and better ways to serve our customers and 
+                      improve our impact.
+                    </p>
+                  </div>
+                  
+                  <div className="border-l-4 border-green-500 pl-6">
+                    <h3 className="text-xl font-light text-green-900 mb-2">Community</h3>
+                    <p className="text-green-700">
+                      We believe in building strong relationships and supporting the communities 
+                      we serve.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              
+              <div className="grid md:grid-cols-3 gap-6">
+                <div className="bg-green-600 text-white p-8 rounded-lg text-center">
+                  <div className="text-4xl font-light mb-2">500+</div>
+                  <div className="font-light">Projects Completed</div>
+                </div>
+                
+                <div className="bg-green-600 text-white p-8 rounded-lg text-center">
+                  <div className="text-4xl font-light mb-2">50+</div>
+                  <div className="font-light">Team Members</div>
+                </div>
+                
+                <div className="bg-green-600 text-white p-8 rounded-lg text-center">
+                  <div className="text-4xl font-light mb-2">10K+</div>
+                  <div className="font-light">Happy Customers</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </>
+      )}
+
+      {/* our missions page*/}
+      {currentPage === 'missions' && (
+      <>
+        <div className="min-h-screen bg-linear-to-b from-green-50 to-white py-16 px-4">
+          <div className="max-w-4xl mx-auto">
+            <h1 className="text-4xl font-light text-green-900 mb-8">Our Missions</h1>
+            
+            <div className="bg-white rounded-lg shadow-lg p-8 mb-8">
+              <h2 className="text-2xl font-light text-green-800 mb-4">Making a Difference</h2>
+              <p className="text-green-700 mb-6 leading-relaxed">
+                Our mission is to create lasting positive change through innovative solutions 
+                and dedicated service. We believe that by working together, we can build a 
+                better future for generations to come.
+              </p>
+            </div>
+            
+            <div className="space-y-8">
+              <div className="bg-white rounded-lg shadow-lg overflow-hidden">
+                <div className="bg-green-600 p-6">
+                  <h3 className="text-2xl font-light text-white">Environmental Conservation</h3>
+                </div>
+                <div className="p-8">
+                  <p className="text-green-700 mb-4 leading-relaxed">
+                    We're committed to protecting our planet through sustainable practices and 
+                    environmental initiatives. Our conservation programs focus on reducing carbon 
+                    emissions, preserving natural habitats, and promoting renewable energy.
+                  </p>
+                  <ul className="space-y-2 text-green-700">
+                    <li className="flex items-start">
+                      <span className="text-green-600 mr-2">•</span>
+                      <span>Plant 1 million trees by 2025</span>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="text-green-600 mr-2">•</span>
+                      <span>Achieve carbon neutrality in all operations</span>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="text-green-600 mr-2">•</span>
+                      <span>Partner with local conservation organizations</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              
+              <div className="bg-white rounded-lg shadow-lg overflow-hidden">
+                <div className="bg-green-600 p-6">
+                  <h3 className="text-2xl font-light text-white">Community Development</h3>
+                </div>
+                <div className="p-8">
+                  <p className="text-green-700 mb-4 leading-relaxed">
+                    We invest in our communities by supporting education, creating job opportunities, 
+                    and fostering economic growth. Our programs are designed to empower individuals 
+                    and strengthen local economies.
+                  </p>
+                  <ul className="space-y-2 text-green-700">
+                    <li className="flex items-start">
+                      <span className="text-green-600 mr-2">•</span>
+                      <span>Provide scholarships to 500 students annually</span>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="text-green-600 mr-2">•</span>
+                      <span>Support local businesses and entrepreneurs</span>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="text-green-600 mr-2">•</span>
+                      <span>Build community centers in underserved areas</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              
+              <div className="bg-white rounded-lg shadow-lg overflow-hidden">
+                <div className="bg-green-600 p-6">
+                  <h3 className="text-2xl font-light text-white">Innovation & Research</h3>
+                </div>
+                <div className="p-8">
+                  <p className="text-green-700 mb-4 leading-relaxed">
+                    We believe in the power of innovation to solve complex challenges. Our research 
+                    initiatives focus on developing new technologies and methodologies that create 
+                    sustainable solutions for the future.
+                  </p>
+                  <ul className="space-y-2 text-green-700">
+                    <li className="flex items-start">
+                      <span className="text-green-600 mr-2">•</span>
+                      <span>Invest 15% of revenue in R&D</span>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="text-green-600 mr-2">•</span>
+                      <span>Collaborate with leading universities</span>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="text-green-600 mr-2">•</span>
+                      <span>Open-source our findings to benefit everyone</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </>
+    )}
 
       {/* Home Page */}
       {currentPage === 'home' && (
