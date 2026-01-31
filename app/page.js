@@ -316,6 +316,12 @@ const DentalEcommerce = () => {
     });
   }, [currentPage]);
 
+  useEffect(() => {
+  if (jobs.length > 0 && !selectedJob) {
+    setSelectedJob(jobs[0]);
+  }
+}, [jobs]);
+
   return (
       <div className="min-h-screen bg-stone-50">
         {/* Navigation Bar */}
@@ -688,7 +694,7 @@ const DentalEcommerce = () => {
             </div>
 
             {/* Why Join Us Section */}
-            <div className="bg-linear-to-br from-green-700 via-green-600 to-green-500 text-white py-20 mt-20 relative overflow-hidden">
+            <div className=" text-green-900 py-20 mt-5 relative overflow-hidden">
               {/* Decorative elements */}
               <div className="absolute inset-0 opacity-5">
                 <div className="absolute top-0 left-1/4 w-96 h-96 bg-white rounded-full blur-3xl"></div>
@@ -696,14 +702,14 @@ const DentalEcommerce = () => {
               </div>
               
               <div className="max-w-7xl mx-auto px-4 relative z-10">
-                <h2 className="text-4xl font-light mb-12 text-center">Why Join Our Engineering Team?</h2>
+                <h2 className="text-4xl font-light mb-12 text-center">Joining an Adventure</h2>
                 <div className="grid md:grid-cols-3 gap-10">
                   <div className="text-center group">
                     <div className="bg-green-700 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg">
                       <span className="text-4xl">🚀</span>
                     </div>
-                    <h3 className="text-2xl font-medium mb-3">Innovation First</h3>
-                    <p className="text-green-100 text-lg leading-relaxed">
+                    <h3 className="text-2xl font-medium mb-3">Innovation Dental Digital</h3>
+                    <p className="text-green-800 text-lg leading-relaxed">
                       Work on cutting-edge projects that impact millions of farmers worldwide
                     </p>
                   </div>
@@ -712,7 +718,7 @@ const DentalEcommerce = () => {
                       <span className="text-4xl">🌱</span>
                     </div>
                     <h3 className="text-2xl font-medium mb-3">Growth Opportunities</h3>
-                    <p className="text-green-100 text-lg leading-relaxed">
+                    <p className="text-green-800 text-lg leading-relaxed">
                       Continuous learning with mentorship programs and professional development
                     </p>
                   </div>
@@ -720,8 +726,8 @@ const DentalEcommerce = () => {
                     <div className="bg-green-700 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg">
                       <span className="text-4xl">🤝</span>
                     </div>
-                    <h3 className="text-2xl font-medium mb-3">Collaborative Culture</h3>
-                    <p className="text-green-100 text-lg leading-relaxed">
+                    <h3 className="text-2xl font-medium mb-3">Tech-Forward</h3>
+                    <p className="text-green-800 text-lg leading-relaxed">
                       Join a diverse team of passionate engineers solving real-world problems
                     </p>
                   </div>
@@ -729,20 +735,6 @@ const DentalEcommerce = () => {
               </div>
             </div>
 
-            {/* Footer CTA */}
-            <div className="bg-white py-16">
-              <div className="max-w-4xl mx-auto px-4 text-center">
-                <h2 className="text-3xl font-light text-green-900 mb-4">
-                  Don't See the Right Fit?
-                </h2>
-                <p className="text-lg text-green-900 mb-8">
-                  We're always looking for talented engineers. Send us your resume and we'll keep you in mind for future opportunities.
-                </p>
-                <button className="bg-green-600 text-white px-8 py-3 rounded-lg hover:bg-green-700 transition font-medium text-lg shadow-md hover:shadow-lg">
-                  Submit General Application
-                </button>
-              </div>
-            </div>
           </>
         )}
 
@@ -810,25 +802,34 @@ const DentalEcommerce = () => {
                     </button>
                   </form>
                 </div>
+
+                {/* Map Section */}
+                <div className="mb-8 rounded-lg overflow-hidden shadow-lg">
+                  <img 
+                    src="/images/map-image.svg" 
+                    alt="Khema Digital Dental Solution Location Map"
+                    className="w-full h-auto"
+                  />
+                </div>
                 
                 <div className="grid md:grid-cols-3 gap-6">
                   <div className="bg-green-50 p-6 rounded-lg">
                     <h3 className="text-lg font-light text-green-900 mb-3">Email</h3>
                     <a href="mailto:info@company.com" className="text-green-700 hover:text-green-900">
-                      info@company.com
+                      Sale@ecodentech.com
                     </a>
                   </div>
                   
                   <div className="bg-green-50 p-6 rounded-lg">
                     <h3 className="text-lg font-light text-green-900 mb-3">Phone</h3>
                     <a href="tel:+15551234567" className="text-green-700 hover:text-green-900">
-                      +1 (555) 123-4567
+                      +855 88 928 5555
                     </a>
                   </div>
                   
                   <div className="bg-green-50 p-6 rounded-lg">
                     <h3 className="text-lg font-light text-green-900 mb-3">Address</h3>
-                    <p className="text-green-700">123 Green Street, Suite 100</p>
+                    <p className="text-green-700">Phumi Tmey, Sangkat Porchentong, Khan Por Senchey, Phnom Penh</p>
                   </div>
                 </div>
               </div>
@@ -836,15 +837,24 @@ const DentalEcommerce = () => {
           </>
         )}
 
-        {/* About Us Page */}
-        {currentPage === 'about-us' && (
+      {/* About Us Page */}
+      {currentPage === 'about-us' && (
         <>
           <div className="min-h-screen bg-linear-to-b from-green-50 to-white border border-green-200 py-16 px-4">
             <div className="max-w-4xl mx-auto">
               <h1 className="text-4xl font-light text-green-900 mb-8">About Us</h1>
               
+              {/* Profile Cover Image */}
+              <div className="mb-8 rounded-lg overflow-hidden shadow-lg">
+                <img 
+                  src="/images/cover-company.svg" 
+                  alt="Company Cover"
+                  className="w-full h-auto"
+                />
+              </div>
+              
               <div className="bg-white rounded-lg shadow-lg p-8 mb-8">
-                <h2 className="text-2xl font-light text-green-800 mb-4">Our Story</h2>
+                <h2 className="text-2xl font-light text-green-800 mb-4">History</h2>
                 <p className="text-green-700 mb-6 leading-relaxed">
                   Founded in 2020, we've been dedicated to making a positive impact on our community 
                   and the environment. Our journey began with a simple idea: to create sustainable 
@@ -857,31 +867,180 @@ const DentalEcommerce = () => {
                 </p>
               </div>
               
+              {/* Timeline Section */}
               <div className="bg-white rounded-lg shadow-lg p-8 mb-8">
-                <h2 className="text-2xl font-light text-green-800 mb-6">Our Values</h2>
+                <h2 className="text-2xl font-light text-green-800 mb-8">Our Journey</h2>
+                
+                <div className="relative">
+                  {/* Timeline Line */}
+                  <div className="absolute left-4 top-0 bottom-0 w-0.5 bg-green-300"></div>
+                  
+                  <div className="space-y-8">
+                    {/* 2022 */}
+                    <div className="relative pl-12">
+                      <div className="absolute left-0 top-1 w-8 h-8 bg-green-600 rounded-full flex items-center justify-center">
+                        <div className="w-3 h-3 bg-white rounded-full"></div>
+                      </div>
+                      <div className="bg-green-50 p-6 rounded-lg">
+                        <div className="text-lg font-medium text-green-900 mb-2">2022</div>
+                        <h3 className="text-xl font-light text-green-800 mb-2">Foundation & Vision</h3>
+                        <p className="text-green-700">
+                          Established ecoDentech with a vision to revolutionize dental care through 
+                          sustainable practices and cutting-edge technology.
+                        </p>
+                      </div>
+                    </div>
+                    
+                    {/* 2023 */}
+                    <div className="relative pl-12">
+                      <div className="absolute left-0 top-1 w-8 h-8 bg-green-600 rounded-full flex items-center justify-center">
+                        <div className="w-3 h-3 bg-white rounded-full"></div>
+                      </div>
+                      <div className="bg-green-50 p-6 rounded-lg">
+                        <div className="text-lg font-medium text-green-900 mb-2">2023</div>
+                        <h3 className="text-xl font-light text-green-800 mb-2">Growth & Innovation</h3>
+                        <p className="text-green-700">
+                          Expanded our services and integrated advanced digital solutions to enhance 
+                          dental practice efficiency while maintaining eco-friendly standards.
+                        </p>
+                      </div>
+                    </div>
+                    
+                    {/* 2024 */}
+                    <div className="relative pl-12">
+                      <div className="absolute left-0 top-1 w-8 h-8 bg-green-600 rounded-full flex items-center justify-center">
+                        <div className="w-3 h-3 bg-white rounded-full"></div>
+                      </div>
+                      <div className="bg-green-50 p-6 rounded-lg">
+                        <div className="text-lg font-medium text-green-900 mb-2">2024</div>
+                        <h3 className="text-xl font-light text-green-800 mb-2">Excellence in Practice</h3>
+                        <p className="text-green-700">
+                          Achieved milestone of serving over 500 dental practices, setting new standards 
+                          for precision and quality in dental care technology.
+                        </p>
+                      </div>
+                    </div>
+                    
+                    {/* 2025 */}
+                    <div className="relative pl-12">
+                      <div className="absolute left-0 top-1 w-8 h-8 bg-green-600 rounded-full flex items-center justify-center">
+                        <div className="w-3 h-3 bg-white rounded-full"></div>
+                      </div>
+                      <div className="bg-green-50 p-6 rounded-lg">
+                        <div className="text-lg font-medium text-green-900 mb-2">2025</div>
+                        <h3 className="text-xl font-light text-green-800 mb-2">Community Impact</h3>
+                        <p className="text-green-700">
+                          Strengthened our commitment to community collaboration and environmental 
+                          responsibility, reaching 10,000+ satisfied customers.
+                        </p>
+                      </div>
+                    </div>
+                    
+                    {/* 2026 */}
+                    <div className="relative pl-12">
+                      <div className="absolute left-0 top-1 w-8 h-8 bg-green-600 rounded-full flex items-center justify-center">
+                        <div className="w-3 h-3 bg-white rounded-full"></div>
+                      </div>
+                      <div className="bg-green-50 p-6 rounded-lg">
+                        <div className="text-lg font-medium text-green-900 mb-2">2026</div>
+                        <h3 className="text-xl font-light text-green-800 mb-2">Future Forward</h3>
+                        <p className="text-green-700">
+                          Continuing to innovate and transform dental care with AI-powered solutions 
+                          and sustainable technologies for the next generation.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <div className="bg-white rounded-lg shadow-lg p-8 mb-8">
+                <h2 className="text-2xl font-light text-green-800 mb-4">Our Core Values</h2>
+                <p className="text-green-700 mb-6 leading-relaxed">
+                  We are ecoDentech, where everyone can grow unlimited.
+                </p>
                 
                 <div className="space-y-6">
                   <div className="border-l-4 border-green-500 pl-6">
-                    <h3 className="text-xl font-light text-green-900 mb-2">Sustainability</h3>
+                    <h3 className="text-xl font-light text-green-900 mb-2">Eco-friendly</h3>
                     <p className="text-green-700">
-                      We prioritize environmental responsibility in everything we do, from our 
-                      operations to our product design.
+                      Empower dental practice with high-tech approach that reduces the environmental impact.
                     </p>
                   </div>
                   
                   <div className="border-l-4 border-green-500 pl-6">
-                    <h3 className="text-xl font-light text-green-900 mb-2">Innovation</h3>
+                    <h3 className="text-xl font-light text-green-900 mb-2">Collaborate</h3>
                     <p className="text-green-700">
-                      We continuously seek new and better ways to serve our customers and 
-                      improve our impact.
+                      Enhance your practice while delivering financial security.
                     </p>
                   </div>
                   
                   <div className="border-l-4 border-green-500 pl-6">
-                    <h3 className="text-xl font-light text-green-900 mb-2">Community</h3>
+                    <h3 className="text-xl font-light text-green-900 mb-2">Optimize</h3>
                     <p className="text-green-700">
-                      We believe in building strong relationships and supporting the communities 
-                      we serve.
+                      Optimize all administrative and support services.
+                    </p>
+                  </div>
+                  
+                  <div className="border-l-4 border-green-500 pl-6">
+                    <h3 className="text-xl font-light text-green-900 mb-2">Dignity</h3>
+                    <p className="text-green-700">
+                      Respect the practice you have created and your vision for the road ahead.
+                    </p>
+                  </div>
+                  
+                  <div className="border-l-4 border-green-500 pl-6">
+                    <h3 className="text-xl font-light text-green-900 mb-2">Excellence</h3>
+                    <p className="text-green-700">
+                      Set the standard for excellence, precision, and high quality dental care.
+                    </p>
+                  </div>
+                  
+                  <div className="border-l-4 border-green-500 pl-6">
+                    <h3 className="text-xl font-light text-green-900 mb-2">Nimble</h3>
+                    <p className="text-green-700">
+                      Learn and grow constantly, and speed up execution.
+                    </p>
+                  </div>
+                  
+                  <div className="border-l-4 border-green-500 pl-6">
+                    <h3 className="text-xl font-light text-green-900 mb-2">Technology</h3>
+                    <p className="text-green-700">
+                      Use technology as a core in transforming dental care.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              
+              {/* Terms & Policy Section */}
+              <div className="bg-white rounded-lg shadow-lg p-8 mb-8">
+                <h2 className="text-2xl font-light text-green-800 mb-6">Terms & Policy</h2>
+                
+                <div className="space-y-6">
+                  <div>
+                    <h3 className="text-xl font-light text-green-900 mb-3">Privacy Policy</h3>
+                    <p className="text-green-700 leading-relaxed mb-4">
+                      We are committed to protecting your privacy and ensuring the security of your 
+                      personal information. We collect and use data only as necessary to provide our 
+                      services and improve your experience.
+                    </p>
+                  </div>
+                  
+                  <div>
+                    <h3 className="text-xl font-light text-green-900 mb-3">Terms of Service</h3>
+                    <p className="text-green-700 leading-relaxed mb-4">
+                      By using our services, you agree to comply with our terms and conditions. We 
+                      strive to provide the highest quality dental solutions while maintaining 
+                      transparency and ethical practices.
+                    </p>
+                  </div>
+                  
+                  <div>
+                    <h3 className="text-xl font-light text-green-900 mb-3">Data Protection</h3>
+                    <p className="text-green-700 leading-relaxed">
+                      Your data is protected with industry-standard security measures. We adhere to 
+                      all applicable data protection regulations and maintain strict confidentiality 
+                      of all patient and practice information.
                     </p>
                   </div>
                 </div>
@@ -910,97 +1069,210 @@ const DentalEcommerce = () => {
 
       {/* our missions page*/}
       {currentPage === 'missions' && (
-      <>
+        <>
+          <div className="min-h-screen bg-linear-to-b from-green-50 to-white py-16 px-4">
+            <div className="max-w-4xl mx-auto">
+              <h1 className="text-4xl font-light text-green-900 mb-8">Our Missions</h1>
+              
+              <div className="space-y-8">
+                {/* Goal Card */}
+                <div className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
+                  <div className="bg-linear-to-r from-green-600 to-green-700 p-6">
+                    <h3 className="text-2xl font-light text-white">Goal</h3>
+                  </div>
+                  <div className="p-8">
+                    <p className="text-green-700 leading-relaxed text-center">
+                      To create lasting positive change and build a sustainable future through 
+                      innovative solutions, environmental stewardship, and community empowerment. 
+                      We aim to be a catalyst for transformation that benefits both people and planet.
+                    </p>
+                  </div>
+                </div>
+
+                {/* Mission Card */}
+                <div className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
+                  <div className="bg-linear-to-r from-green-600 to-green-700 p-6">
+                    <h3 className="text-2xl font-light text-white">Mission</h3>
+                  </div>
+                  <div className="p-8">
+                    <p className="text-green-700 leading-relaxed text-center">
+                      We are dedicated to protecting our environment, strengthening communities, 
+                      and driving innovation through research and collaboration. By working together 
+                      with partners, stakeholders, and communities worldwide, we deliver impactful 
+                      programs that create measurable, sustainable outcomes.
+                    </p>
+                  </div>
+                </div>
+
+                {/* Actions Card with Timeline */}
+                <div className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
+                  <div className="bg-linear-to-r from-green-600 to-green-700 p-6">
+                    <h3 className="text-2xl font-light text-white">Actions</h3>
+                  </div>
+                  <div className="p-8">
+                    <p className="text-green-700 mb-10 leading-relaxed text-center">
+                      Our strategic roadmap outlines key initiatives and milestones over the coming years.
+                    </p>
+                    
+                    {/* Timeline */}
+                    <div className="relative">
+                      {/* Vertical Line */}
+                      <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-green-300"></div>
+                      
+                      <div className="space-y-12">
+                        {/* 2024 */}
+                        <div className="relative pl-20">
+                          {/* Timeline Dot */}
+                          <div className="absolute left-5 top-2 w-7 h-7 bg-green-600 rounded-full border-4 border-white shadow-lg"></div>
+                          
+                          <div className="bg-linear-to-r from-green-50 to-white rounded-lg p-6 shadow-md hover:shadow-lg transition-all">
+                            <h4 className="text-2xl font-semibold text-green-800 mb-3">2024</h4>
+                            <p className="text-green-700 leading-relaxed mb-4">
+                              Foundation year - Launch environmental conservation programs and establish 
+                              community partnerships across 10 regions.
+                            </p>
+                            <button 
+                              onClick={() => setCurrentPage('actions-2024')}
+                              className="bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-lg transition-colors font-medium shadow-md hover:shadow-lg cursor-pointer"
+                            >
+                              View Details →
+                            </button>
+                          </div>
+                        </div>
+
+                        {/* 2025 */}
+                        <div className="relative pl-20">
+                          {/* Timeline Dot */}
+                          <div className="absolute left-5 top-2 w-7 h-7 bg-green-600 rounded-full border-4 border-white shadow-lg"></div>
+                          
+                          <div className="bg-linear-to-r from-green-50 to-white rounded-lg p-6 shadow-md hover:shadow-lg transition-all">
+                            <h4 className="text-2xl font-semibold text-green-800 mb-3">2025</h4>
+                            <p className="text-green-700 leading-relaxed mb-4">
+                              Expansion phase - Scale tree planting initiative to 1 million trees and 
+                              launch 500 scholarship programs.
+                            </p>
+                            <button 
+                              onClick={() => setCurrentPage('actions-2025')}
+                              className="bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-lg transition-colors font-medium shadow-md hover:shadow-lg cursor-pointer"
+                            >
+                              View Details →
+                            </button>
+                          </div>
+                        </div>
+
+                        {/* 2026 */}
+                        <div className="relative pl-20">
+                          {/* Timeline Dot */}
+                          <div className="absolute left-5 top-2 w-7 h-7 bg-green-600 rounded-full border-4 border-white shadow-lg"></div>
+                          
+                          <div className="bg-linear-to-r from-green-50 to-white rounded-lg p-6 shadow-md hover:shadow-lg transition-all">
+                            <h4 className="text-2xl font-semibold text-green-800 mb-3">2026</h4>
+                            <p className="text-green-700 leading-relaxed mb-4">
+                              Innovation focus - Achieve carbon neutrality in operations and invest 15% 
+                              of revenue in research & development.
+                            </p>
+                            <button 
+                              onClick={() => setCurrentPage('actions-2026')}
+                              className="bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-lg transition-colors font-medium shadow-md hover:shadow-lg cursor-pointer"
+                            >
+                              View Details →
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </>
+      )}
+
+      {/* Action Detail Pages */}
+      {currentPage === 'actions-2024' && (
         <div className="min-h-screen bg-linear-to-b from-green-50 to-white py-16 px-4">
           <div className="max-w-4xl mx-auto">
-            <h1 className="text-4xl font-light text-green-900 mb-8">Our Missions</h1>
+            <button 
+              onClick={() => setCurrentPage('missions')}
+              className="text-green-600 hover:text-green-700 mb-8 flex items-center gap-2 font-medium transition-colors"
+            >
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+              </svg>
+              Back to Missions
+            </button>
             
-            <div className="bg-white rounded-lg shadow-lg p-8 mb-8">
-              <h2 className="text-2xl font-light text-green-800 mb-4">Making a Difference</h2>
-              <p className="text-green-700 mb-6 leading-relaxed">
-                Our mission is to create lasting positive change through innovative solutions 
-                and dedicated service. We believe that by working together, we can build a 
-                better future for generations to come.
-              </p>
+            <div className="text-center mb-12">
+              <h1 className="text-5xl font-light text-green-900 mb-4">2024 Actions</h1>
+              <p className="text-xl text-green-700">Foundation year initiatives</p>
             </div>
             
-            <div className="space-y-8">
-              <div className="bg-white rounded-lg shadow-lg overflow-hidden">
-                <div className="bg-green-600 p-6">
-                  <h3 className="text-2xl font-light text-white">Environmental Conservation</h3>
-                </div>
-                <div className="p-8">
-                  <p className="text-green-700 mb-4 leading-relaxed">
-                    We're committed to protecting our planet through sustainable practices and 
-                    environmental initiatives. Our conservation programs focus on reducing carbon 
-                    emissions, preserving natural habitats, and promoting renewable energy.
-                  </p>
-                  <ul className="space-y-2 text-green-700">
-                    <li className="flex items-start">
-                      <span className="text-green-600 mr-2">•</span>
-                      <span>Plant 1 million trees by 2025</span>
+            <div className="space-y-6">
+              <div className="bg-white rounded-lg shadow-lg p-8 hover:shadow-xl transition-shadow border-l-4 border-green-600">
+                <h3 className="text-2xl font-semibold text-green-800 mb-4">Environmental Conservation Launch</h3>
+                <p className="text-green-700 mb-6 leading-relaxed">
+                  Establish baseline environmental programs and partnerships with conservation organizations.
+                </p>
+                <div className="bg-green-50 rounded-lg p-6">
+                  <ul className="space-y-3 text-green-700">
+                    <li className="flex items-start gap-3">
+                      <span className="text-green-600 text-xl shrink-0">✓</span>
+                      <span>Plant 100,000 trees across 10 regions</span>
                     </li>
-                    <li className="flex items-start">
-                      <span className="text-green-600 mr-2">•</span>
-                      <span>Achieve carbon neutrality in all operations</span>
+                    <li className="flex items-start gap-3">
+                      <span className="text-green-600 text-xl shrink-0">✓</span>
+                      <span>Conduct environmental impact assessments</span>
                     </li>
-                    <li className="flex items-start">
-                      <span className="text-green-600 mr-2">•</span>
-                      <span>Partner with local conservation organizations</span>
+                    <li className="flex items-start gap-3">
+                      <span className="text-green-600 text-xl shrink-0">✓</span>
+                      <span>Partner with 15 local conservation groups</span>
                     </li>
                   </ul>
                 </div>
               </div>
-              
-              <div className="bg-white rounded-lg shadow-lg overflow-hidden">
-                <div className="bg-green-600 p-6">
-                  <h3 className="text-2xl font-light text-white">Community Development</h3>
-                </div>
-                <div className="p-8">
-                  <p className="text-green-700 mb-4 leading-relaxed">
-                    We invest in our communities by supporting education, creating job opportunities, 
-                    and fostering economic growth. Our programs are designed to empower individuals 
-                    and strengthen local economies.
-                  </p>
-                  <ul className="space-y-2 text-green-700">
-                    <li className="flex items-start">
-                      <span className="text-green-600 mr-2">•</span>
-                      <span>Provide scholarships to 500 students annually</span>
+
+              <div className="bg-white rounded-lg shadow-lg p-8 hover:shadow-xl transition-shadow border-l-4 border-green-600">
+                <h3 className="text-2xl font-semibold text-green-800 mb-4">Community Partnerships</h3>
+                <p className="text-green-700 mb-6 leading-relaxed">
+                  Build relationships with community leaders and establish presence in key areas.
+                </p>
+                <div className="bg-green-50 rounded-lg p-6">
+                  <ul className="space-y-3 text-green-700">
+                    <li className="flex items-start gap-3">
+                      <span className="text-green-600 text-xl shrink-0">✓</span>
+                      <span>Open 5 regional offices</span>
                     </li>
-                    <li className="flex items-start">
-                      <span className="text-green-600 mr-2">•</span>
-                      <span>Support local businesses and entrepreneurs</span>
+                    <li className="flex items-start gap-3">
+                      <span className="text-green-600 text-xl shrink-0">✓</span>
+                      <span>Award 100 initial scholarships</span>
                     </li>
-                    <li className="flex items-start">
-                      <span className="text-green-600 mr-2">•</span>
-                      <span>Build community centers in underserved areas</span>
+                    <li className="flex items-start gap-3">
+                      <span className="text-green-600 text-xl shrink-0">✓</span>
+                      <span>Host 20 community engagement events</span>
                     </li>
                   </ul>
                 </div>
               </div>
-              
-              <div className="bg-white rounded-lg shadow-lg overflow-hidden">
-                <div className="bg-green-600 p-6">
-                  <h3 className="text-2xl font-light text-white">Innovation & Research</h3>
-                </div>
-                <div className="p-8">
-                  <p className="text-green-700 mb-4 leading-relaxed">
-                    We believe in the power of innovation to solve complex challenges. Our research 
-                    initiatives focus on developing new technologies and methodologies that create 
-                    sustainable solutions for the future.
-                  </p>
-                  <ul className="space-y-2 text-green-700">
-                    <li className="flex items-start">
-                      <span className="text-green-600 mr-2">•</span>
-                      <span>Invest 15% of revenue in R&D</span>
+
+              <div className="bg-white rounded-lg shadow-lg p-8 hover:shadow-xl transition-shadow border-l-4 border-green-600">
+                <h3 className="text-2xl font-semibold text-green-800 mb-4">Research Infrastructure</h3>
+                <p className="text-green-700 mb-6 leading-relaxed">
+                  Set up research facilities and initiate collaboration with academic institutions.
+                </p>
+                <div className="bg-green-50 rounded-lg p-6">
+                  <ul className="space-y-3 text-green-700">
+                    <li className="flex items-start gap-3">
+                      <span className="text-green-600 text-xl shrink-0">✓</span>
+                      <span>Establish research lab facilities</span>
                     </li>
-                    <li className="flex items-start">
-                      <span className="text-green-600 mr-2">•</span>
-                      <span>Collaborate with leading universities</span>
+                    <li className="flex items-start gap-3">
+                      <span className="text-green-600 text-xl shrink-0">✓</span>
+                      <span>Partner with 5 universities</span>
                     </li>
-                    <li className="flex items-start">
-                      <span className="text-green-600 mr-2">•</span>
-                      <span>Open-source our findings to benefit everyone</span>
+                    <li className="flex items-start gap-3">
+                      <span className="text-green-600 text-xl shrink-0">✓</span>
+                      <span>Allocate initial R&D budget of 10%</span>
                     </li>
                   </ul>
                 </div>
@@ -1008,7 +1280,256 @@ const DentalEcommerce = () => {
             </div>
           </div>
         </div>
-      </>
+      )}
+
+      {currentPage === 'actions-2025' && (
+        <div className="min-h-screen bg-linear-to-b from-green-50 to-white py-16 px-4">
+          <div className="max-w-4xl mx-auto">
+            <button 
+              onClick={() => setCurrentPage('missions')}
+              className="text-green-600 hover:text-green-700 mb-8 flex items-center gap-2 font-medium transition-colors cursor-pointer"
+            >
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+              </svg>
+              Back to Missions
+            </button>
+            
+            <div className="text-center mb-12">
+              <h1 className="text-5xl font-light text-green-900 mb-4">2025 Actions</h1>
+              <p className="text-xl text-green-700">Expansion phase initiatives</p>
+            </div>
+            
+            <div className="space-y-6">
+              <div className="bg-white rounded-lg shadow-lg p-8 hover:shadow-xl transition-shadow border-l-4 border-green-600">
+                <h3 className="text-2xl font-semibold text-green-800 mb-4">Million Tree Initiative</h3>
+                <p className="text-green-700 mb-6 leading-relaxed">
+                  Scale up tree planting operations to reach 1 million trees by year end.
+                </p>
+                <div className="bg-green-50 rounded-lg p-6">
+                  <ul className="space-y-3 text-green-700">
+                    <li className="flex items-start gap-3">
+                      <span className="text-green-600 text-xl shrink-0">○</span>
+                      <span>Plant 900,000 additional trees</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <span className="text-green-600 text-xl shrink-0">○</span>
+                      <span>Expand to 25 regions</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <span className="text-green-600 text-xl shrink-0">○</span>
+                      <span>Engage 10,000 volunteers</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              <div className="bg-white rounded-lg shadow-lg p-8 hover:shadow-xl transition-shadow border-l-4 border-green-600">
+                <h3 className="text-2xl font-semibold text-green-800 mb-4">Scholarship Program Expansion</h3>
+                <p className="text-green-700 mb-6 leading-relaxed">
+                  Increase scholarship opportunities to 500 students annually.
+                </p>
+                <div className="bg-green-50 rounded-lg p-6">
+                  <ul className="space-y-3 text-green-700">
+                    <li className="flex items-start gap-3">
+                      <span className="text-green-600 text-xl shrink-0">○</span>
+                      <span>Award 500 scholarships</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <span className="text-green-600 text-xl shrink-0">○</span>
+                      <span>Launch mentorship program</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <span className="text-green-600 text-xl shrink-0">○</span>
+                      <span>Create online learning platform</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              <div className="bg-white rounded-lg shadow-lg p-8 hover:shadow-xl transition-shadow border-l-4 border-green-600">
+                <h3 className="text-2xl font-semibold text-green-800 mb-4">Renewable Energy Projects</h3>
+                <p className="text-green-700 mb-6 leading-relaxed">
+                  Implement renewable energy solutions across all facilities.
+                </p>
+                <div className="bg-green-50 rounded-lg p-6">
+                  <ul className="space-y-3 text-green-700">
+                    <li className="flex items-start gap-3">
+                      <span className="text-green-600 text-xl shrink-0">○</span>
+                      <span>Install solar panels on 50% of buildings</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <span className="text-green-600 text-xl shrink-0">○</span>
+                      <span>Reduce carbon emissions by 40%</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <span className="text-green-600 text-xl shrink-0">○</span>
+                      <span>Partner with renewable energy providers</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {currentPage === 'actions-2026' && (
+      <div className="min-h-screen bg-linear-to-b from-green-50 to-white py-16 px-4">
+        <div className="max-w-4xl mx-auto">
+          <button 
+            onClick={() => setCurrentPage('missions')}
+            className="text-green-600 hover:text-green-700 mb-8 flex items-center gap-2 font-medium transition-colors cursor-pointer"
+          >
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+            </svg>
+            Back to Missions
+          </button>
+          
+          <div className="text-center mb-12">
+            <h1 className="text-5xl font-light text-green-900 mb-4">2026 Actions</h1>
+            <p className="text-xl text-green-700">Innovation focus initiatives</p>
+          </div>
+          
+          <div className="space-y-6">
+            <div className="bg-white rounded-lg shadow-lg p-8 hover:shadow-xl transition-shadow border-l-4 border-green-600">
+              <h3 className="text-2xl font-semibold text-green-800 mb-4">Carbon Neutrality Achievement</h3>
+              <p className="text-green-700 mb-6 leading-relaxed">
+                Achieve complete carbon neutrality across all operations through renewable energy adoption and carbon offset programs.
+              </p>
+              <div className="bg-green-50 rounded-lg p-6">
+                <ul className="space-y-3 text-green-700">
+                  <li className="flex items-start gap-3">
+                    <span className="text-green-600 text-xl shrink-0">○</span>
+                    <span>Complete solar panel installation on 100% of facilities</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="text-green-600 text-xl shrink-0">○</span>
+                    <span>Offset remaining emissions through verified carbon credits</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="text-green-600 text-xl shrink-0">○</span>
+                    <span>Implement zero-waste policies in all operations</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="text-green-600 text-xl shrink-0">○</span>
+                    <span>Transition entire vehicle fleet to electric</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div className="bg-white rounded-lg shadow-lg p-8 hover:shadow-xl transition-shadow border-l-4 border-green-600">
+              <h3 className="text-2xl font-semibold text-green-800 mb-4">Research & Development Expansion</h3>
+              <p className="text-green-700 mb-6 leading-relaxed">
+                Invest 15% of revenue in cutting-edge research and development for sustainable technologies.
+              </p>
+              <div className="bg-green-50 rounded-lg p-6">
+                <ul className="space-y-3 text-green-700">
+                  <li className="flex items-start gap-3">
+                    <span className="text-green-600 text-xl shrink-0">○</span>
+                    <span>Establish 3 new innovation labs focused on clean technology</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="text-green-600 text-xl shrink-0">○</span>
+                    <span>Partner with 10 additional universities for joint research</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="text-green-600 text-xl shrink-0">○</span>
+                    <span>Launch innovation grant program for sustainable solutions</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="text-green-600 text-xl shrink-0">○</span>
+                    <span>Develop proprietary green building materials</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div className="bg-white rounded-lg shadow-lg p-8 hover:shadow-xl transition-shadow border-l-4 border-green-600">
+              <h3 className="text-2xl font-semibold text-green-800 mb-4">Smart Agriculture Technology</h3>
+              <p className="text-green-700 mb-6 leading-relaxed">
+                Deploy innovative agricultural technologies to improve sustainability and food security.
+              </p>
+              <div className="bg-green-50 rounded-lg p-6">
+                <ul className="space-y-3 text-green-700">
+                  <li className="flex items-start gap-3">
+                    <span className="text-green-600 text-xl shrink-0">○</span>
+                    <span>Implement precision farming systems in 50 communities</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="text-green-600 text-xl shrink-0">○</span>
+                    <span>Introduce water conservation technologies reducing usage by 60%</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="text-green-600 text-xl shrink-0">○</span>
+                    <span>Train 5,000 farmers in sustainable agriculture practices</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="text-green-600 text-xl shrink-0">○</span>
+                    <span>Create mobile app for real-time crop monitoring</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div className="bg-white rounded-lg shadow-lg p-8 hover:shadow-xl transition-shadow border-l-4 border-green-600">
+              <h3 className="text-2xl font-semibold text-green-800 mb-4">Digital Education Platform</h3>
+              <p className="text-green-700 mb-6 leading-relaxed">
+                Launch comprehensive digital learning platform to expand educational access globally.
+              </p>
+              <div className="bg-green-50 rounded-lg p-6">
+                <ul className="space-y-3 text-green-700">
+                  <li className="flex items-start gap-3">
+                    <span className="text-green-600 text-xl shrink-0">○</span>
+                    <span>Develop 200+ courses in sustainability and technology</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="text-green-600 text-xl shrink-0">○</span>
+                    <span>Provide free access to 100,000 students worldwide</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="text-green-600 text-xl shrink-0">○</span>
+                    <span>Create AI-powered personalized learning paths</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="text-green-600 text-xl shrink-0">○</span>
+                    <span>Offer certification programs recognized by industry partners</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div className="bg-white rounded-lg shadow-lg p-8 hover:shadow-xl transition-shadow border-l-4 border-green-600">
+              <h3 className="text-2xl font-semibold text-green-800 mb-4">Circular Economy Initiatives</h3>
+              <p className="text-green-700 mb-6 leading-relaxed">
+                Implement circular economy principles to eliminate waste and maximize resource efficiency.
+              </p>
+              <div className="bg-green-50 rounded-lg p-6">
+                <ul className="space-y-3 text-green-700">
+                  <li className="flex items-start gap-3">
+                    <span className="text-green-600 text-xl shrink-0">○</span>
+                    <span>Launch product take-back and recycling program</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="text-green-600 text-xl shrink-0">○</span>
+                    <span>Design all new products for 100% recyclability</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="text-green-600 text-xl shrink-0">○</span>
+                    <span>Partner with 30 recycling facilities for material recovery</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="text-green-600 text-xl shrink-0">○</span>
+                    <span>Reduce virgin material usage by 70%</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     )}
 
       {/* Home Page */}
@@ -1919,8 +2440,8 @@ const DentalEcommerce = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
           <div className="grid md:grid-cols-4 gap-12">
             <div>
-              <h3 className="text-xl font-light mb-6 text-white">DentaMould</h3>
-              <p className="text-white text-sm leading-relaxed">Professional 3D dental solutions for modern practices.</p>
+              <h3 className="text-xl font-light mb-6 text-white">Ecodentech</h3>
+              <p className="text-white text-sm leading-relaxed">Ecodent Dental Technology Solutions is a leading tech-driven facility in Cambodia, specializing in high-precision zirconium frameworks and implant restorations.</p>
             </div>
             <div>
               <h4 className="font-light mb-6 text-white text-sm tracking-wide uppercase">Quick Links</h4>
@@ -1943,11 +2464,11 @@ const DentalEcommerce = () => {
               <ul className="space-y-3">
                 <li className="flex items-center text-blue-white text-sm">
                   <Phone className="w-4 h-4 mr-3" strokeWidth={1.5} />
-                  <span>+1 (555) 123-4567</span>
+                  <span>+855 88 928 5555</span>
                 </li>
                 <li className="flex items-center text-white text-sm">
                   <Mail className="w-4 h-4 mr-3" strokeWidth={1.5} />
-                  <span>support@dentamould.com</span>
+                  <span>Sale@ecodentech.com</span>
                 </li>
               </ul>
             </div>
